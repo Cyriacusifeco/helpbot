@@ -1,10 +1,31 @@
 const express = require('express');
-const app = express();
-const port = 3000; // Choose any port number you prefer
+const mongoose = require('mongoose');
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!'); // Simple response to test if the server is running
+const app = express();
+const port = process.env.PORT || 3000;
+
+// MongoDB connection URI
+const dbUri = 'mongodb://localhost:27017/users';
+
+// MongoDB connection options (useNewUrlParser, useUnifiedTopology are still valid)
+const dbOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // Will add more options as needed
+};
+
+// Connect to MongoDB using createConnection
+const dbConnection = mongoose.createConnection(dbUri, dbOptions);
+
+// Check if the connection was successful
+dbConnection.on('connected', () => {
+  console.log('Connected to MongoDB!');
 });
+
+dbConnection.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
