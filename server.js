@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
+const morgan = require('morgan');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,7 +17,16 @@ const dbOptions = {
   // Will add more options as needed
 };
 
-// Connect to MongoDB using createConnection
+// Connect to MongoDB using mongoose.connect
+mongoose.connect(dbUri, dbOptions)
+  .then(() => {
+    console.log('Connected to MongoDB!');
+  })
+  .catch((err) => {
+    console.error('MongoDB connection error:', err);
+  });
+
+/*Connect to MongoDB using createConnection
 const dbConnection = mongoose.createConnection(dbUri, dbOptions);
 
 // Check if the connection was successful
@@ -26,7 +37,7 @@ dbConnection.on('connected', () => {
 dbConnection.on('error', (err) => {
   console.error('MongoDB connection error:', err);
 });
-
+*/
 
 // Middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,11 +45,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Serve static files from the "public" directory
 app.use(express.static('public'));
 
+// Use morgan middleware for request logging
+app.use(morgan('combined'));
+
 // Import the userController to handle the registration form submission
 const userController = require('./controllers/userController');
 
 // Use the userController to handle the registration form submission
-app.use('/register', userController);
+app.use('/', userController);
+
+app.get('/', (req, res) => {
+  // Use the path module to resolve the correct file path
+  const filePath = path.resolve(__dirname, 'public', 'registration.html');
+  // Send the registration.html file as the response
+  res.sendFile(filePath);
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

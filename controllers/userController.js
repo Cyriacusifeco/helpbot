@@ -3,8 +3,9 @@ const bcrypt = require('bcrypt');
 const User = require('../models/users'); // Import the User model
 
 const router = express.Router();
+//const router = express();
 
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
