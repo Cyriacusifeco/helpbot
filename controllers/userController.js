@@ -5,7 +5,7 @@ const User = require('../models/users'); // Import the User model
 const router = express.Router();
 //const router = express();
 
-router.post('/', async (req, res) => {
+router.post('/user', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 

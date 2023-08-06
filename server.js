@@ -56,7 +56,7 @@ const userController = require('./controllers/userController');
 const authController = require('./controllers/authController');
 
 // Use the userController to handle the registration form submission
-app.use('/', userController);
+app.use('/register', userController);
 
 // Use the authController to handle user login
 app.use('/auth', authController);
