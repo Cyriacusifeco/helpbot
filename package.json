@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Cyriacusifeco/helpbot#readme",
   "dependencies": {
+    "jsonwebtoken": "^9.0.1",
     "morgan": "^1.10.0"
   }
 }

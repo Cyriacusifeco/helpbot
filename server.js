@@ -42,17 +42,25 @@ dbConnection.on('error', (err) => {
 // Middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Middleware for parsing JSON data
+app.use(express.json());
+
 // Serve static files from the "public" directory
 app.use(express.static('public'));
 
 // Use morgan middleware for request logging
 app.use(morgan('combined'));
 
-// Import the userController to handle the registration form submission
+// Import necessary controllers to handle form submission
 const userController = require('./controllers/userController');
+const authController = require('./controllers/authController');
 
 // Use the userController to handle the registration form submission
 app.use('/', userController);
+
+// Use the authController to handle user login
+app.use('/auth', authController);
+
 
 app.get('/', (req, res) => {
   // Use the path module to resolve the correct file path
