@@ -2,7 +2,6 @@ import './Hero.css'
 
 
 
-
 export default function Startup() {
   return (
     <>
