@@ -1,5 +1,8 @@
 import '../App/App.css'
 import './Signup.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -24,14 +27,14 @@ export default function Signup() {
             <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Password" />
           </div>
           <div className="mb-3">
-            <button className='active'>Build your Chatbot</button>
+            <button className='active'><FontAwesomeIcon icon={faEnvelope} /> Sign Up</button>
           </div>
           <hr />
           <div className="mb-2">
             <button className='inactive'>Sign up with Google</button>
           </div>
           <div className="mb-2">
-            <button className='inactive'>Sign Up with Apple</button>
+            <button className='inactive'><FontAwesomeIcon icon={faEnvelope} /> Sign Up with Apple</button>
           </div>
         </div>
 
