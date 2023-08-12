@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../App/App.css'
 import './Signup.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,6 +37,9 @@ export default function Signup() {
           <div className="mb-2">
             <button className='inactive'><FontAwesomeIcon icon={faEnvelope} /> Sign Up with Apple</button>
           </div>
+          <p>
+            Already have an account? <Link to="/SignIn">Log In</Link>
+          </p>
         </div>
 
       </div>
