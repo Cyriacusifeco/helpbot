@@ -1,8 +1,8 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="100"
+  width="250"
   height="50"
-  viewBox="0 0 250 200"
+  viewBox="0 0 250 50"
 >
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron');
