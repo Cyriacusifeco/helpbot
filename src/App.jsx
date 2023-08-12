@@ -1,13 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './NavBar'
+import NavBar from './NavBar';
 import Startup from './Startup';
-import './App.css'
+import Signup from './Signup';
+import './App.css';
 
 export default function App() {
   return (
-    <>
-      <Navbar/>
-      <Startup />
-    </>
-  )
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Startup/>} />
+          <Route  path="/About" element={<Signup />} />
+        </Routes>
+      </div>
+      
+    </Router>
+  );
 }
