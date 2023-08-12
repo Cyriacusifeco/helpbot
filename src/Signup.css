@@ -1,0 +1,21 @@
+.log-in{
+  text-align: center;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+}
+
+/* Increase the logo size and add spacing around it */
+.logo-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.logo-container a {
+  font-size: 30px;
+  margin-right: 10px;
+  color: black;
+  /* Add spacing to the right of the logo */
+}
