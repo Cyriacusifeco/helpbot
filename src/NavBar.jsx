@@ -1,14 +1,11 @@
-import './App.css';
-import logo from './assets/logo.svg';
+import './components/App/App.css';
 
 export default function NavBar() {
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg border-bottom border-body m-3">
         <div className="container-fluid">
-          <a className="navbar-brand logo  " href="#">
-            <img src={logo} />
-          </a>
+          <a className="navbar-brand logo  " href="#"></a>
           <button
             className="navbar-toggler"
             type="button"
