@@ -1,0 +1,73 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="400"
+  height="100"
+  viewBox="0 0 400 100"
+>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron');
+    .animate-text {
+        font-family: 'Orbitron';
+        font-weight: 1000;
+    }
+</style>
+<rect x="30" y="30" rx="20" ry="20" width="230" height="50" fill="#2D4059" />
+<text x="50" y="65" align="center">
+   <tspan class='animate-text' 
+    style='font-size: 30px;
+      fill: #ffffff;
+      text-shadow: 1px 1px 1px #000;' >
+   <!-- Animation for the letter 'h' -->
+   <animate attributeName="opacity" values="0;1" dur="1.0s" begin="0s" fill="freeze" />
+    h
+    </tspan>
+    <tspan class='animate-text'
+      style='font-size: 30px;
+      fill: #ffffff;
+      text-shadow: 1px 1px 1px #000;' >
+    <!-- Animation for the letters 'he' -->
+    <animate attributeName="opacity" values="0;1" dur="1.0s" begin="0.1s" fill="freeze" />
+    e
+    </tspan>
+    <tspan class='animate-text' 
+    style='font-size: 30px;
+      fill: #ffffff;
+      text-shadow: 1px 1px 1px #000;' >
+    <!-- Animation for the letters 'hel' -->
+    <animate attributeName="opacity" values="0;1" dur="1.0s" begin="0.3s" fill="freeze" />
+    l
+    </tspan>
+    <tspan  class='animate-text' 
+    style='font-size: 30px;
+      fill: #ffffff;
+      text-shadow: 1px 1px 1px #000;' >
+    <!-- Animation for the letters 'help' -->
+    <animate attributeName="opacity" values="0;1" dur="1.0s" begin="0.5s" fill="freeze" />
+    p 
+    </tspan>
+    <tspan class='animate-text' 
+    style='font-size: 30px;
+      fill: #EA5455;
+      text-shadow: 1px 1px 1px #000;' >
+    <!-- Animation for the letters 'helpB' -->
+    <animate attributeName="opacity" values="0;1" dur="1.2s" begin="0.7s" fill="freeze" />
+    B
+    </tspan>
+    <tspan class='animate-text' 
+    style='font-size: 30px;
+      fill: #EA5455;
+      text-shadow: 1px 1px 1px #000;' >
+    <!-- Animation for the letters 'helpBO' -->
+    <animate attributeName="opacity" values="0;1" dur="1.2s" begin="0.9s" fill="freeze" />
+    O 
+    </tspan>
+    <tspan class='animate-text' 
+    style='font-size: 30px;
+      fill: #EA5455;
+      text-shadow: 1px 3px 2px #000;' >
+    <!-- Animation for the letters 'helpBOT' -->
+    <animate attributeName="opacity" values="0;1" dur="1.2s" begin="1.0s" fill="freeze" />
+    T 
+    </tspan>
+  </text>
+</svg>
