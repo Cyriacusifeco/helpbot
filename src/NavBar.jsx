@@ -1,4 +1,4 @@
-import './components/App/App.css';
+import './App/App.css';
 
 export default function NavBar() {
   return (
