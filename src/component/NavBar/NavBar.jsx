@@ -1,8 +1,18 @@
 import './NavBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 export default function NavBar() {
+  const location = useLocation();
+
+  // Check if the current location is the dashboard page
+  const isDashboardPage = location.pathname.includes('/dashboard');
+
+  // Conditionally render the navbar only if not on the dashboard page
+  if (isDashboardPage) {
+    return null; // Return null to hide the navbar
+  }
+  
   return (
     <nav className="navbar fixed-top navbar-expand-lg border-bottom border-body m-3">
       <div className="container-fluid">
@@ -27,7 +37,7 @@ export default function NavBar() {
               <Link className="nav-link" to="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/demo">Demo</Link>
+              <Link className="nav-link" to="/dashboard">Demo</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/features">Features</Link>
