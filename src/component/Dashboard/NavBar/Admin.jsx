@@ -9,7 +9,7 @@ export default function Admin() {
     <>
       <div className='container'>
         <div className='row'>
-          <div className="col-md-2 sidebar">
+          <div className="sidebar">
             <div className="logo-details row">
               <i className="bx bxl-c-plus-plus" />
               <span className="logo_name">LOGO</span>
