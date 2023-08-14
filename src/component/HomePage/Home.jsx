@@ -1,12 +1,12 @@
 import Hero from './Hero/Hero';
-import '../HomePage/Hero/Hero.css';
+import '../Hero/Hero.css';
 
 export default function Home() {
   return (
     <>
       <Hero />
       <div>
-        <h1>hei, Barbie!</h1>
+        <h1>hi, Barbie!</h1>
       </div>
     </>
   );
