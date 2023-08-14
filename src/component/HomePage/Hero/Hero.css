@@ -12,12 +12,24 @@
 .hero-article {
   margin-left: 5rem;
   margin-top: 12rem;
+  font-family: var(--font-family-base);
   display: grid;
   grid-column: auto;
-  grid-template-rows: 12rem;
+  grid-template-rows: 14rem;
+}
+.hero-article h1 {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xx-large);
+}
+.hero-article h4 {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
 }
 .helpbot {
   color: var(--color-red);
+}
+.startup {
+  font-family: var(--font-family-base);
 }
 .right {
   padding-top: 5rem;

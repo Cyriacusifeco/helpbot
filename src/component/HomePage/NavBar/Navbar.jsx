@@ -36,9 +36,9 @@ const NavBar = () => {
       expand="lg"
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" onClick={scrollTop} className="navBrn">
+        <a href="/" onClick={scrollTop} className="navBrn">
           <img src={Logo} alt="Logo" />
-        </Navbar.Brand>
+        </a>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -25,13 +25,14 @@ main {
   --color-red: #ea5455;
 
   --font-family-base: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-title: 'Open Sans', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
 
   --font-size-small: 1.1rem;
   --font-size-medium: 1.4rem;
   --font-size-large: 1.8rem;
   --font-size-x-large: 2.2rem;
-  --font-size-xx-large: 4rem;
+  --font-size-xx-large: 3rem;
 
   --nav-item-font-family: var(--font-family-base);
   --nav-item-font-weight: 400;
