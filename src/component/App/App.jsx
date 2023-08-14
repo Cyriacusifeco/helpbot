@@ -4,7 +4,8 @@ import NavBar from '../NavBar/NavBar'
 import Signup from '../Auth/Signup'
 import SignIn from '../Auth/SignIn'
 import Home from '../HomePage/Home'
-import './App.css';
+import Admin from '../Dashboard/NavBar/Admin'
+import '../App/App.css';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/About" element={<Signup />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Admin />} />
         </Routes>
       </div>
     </Router>
