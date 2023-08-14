@@ -1,57 +1,98 @@
-.canvas {
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  max-height: 100%;
-  height: 100%;
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
-.side-menu-nav {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
 }
 
-.side-menu {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #2D4059;
-  list-style: none;
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
 }
 
-
-.side-menu-bottom {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 5px 0;
-  font-size: 12px;
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
 }
 
-.icon {
-  margin-right: 10px;
-  padding: 5px;
-  font-size: 25px;
-  color: white;
-  background-color: rgb(234, 84, 85);
-  border: none;
-  border-radius: 10px;
-  box-shadow: rgba(89,
-      86,
-      86,
-      0.35) 0px 5px 10px;
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
 }
 
-.side-menu-bottom-icon {
-  margin-right: 10px;
-  padding: 5px;
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+ .nav-bottom {
   font-size: 15px;
-  color: white;
-  background-color: rgb(234, 84, 85);
-  border: none;
-  border-radius: 10px;
-  box-shadow: rgba(89, 86, 86, 0.35) 0px 5px 10px;
 }
