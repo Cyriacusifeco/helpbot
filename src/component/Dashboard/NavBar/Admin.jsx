@@ -1,5 +1,4 @@
-import { faBolt, faGaugeSimple, faUser } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 import './Admin.css'
 
@@ -7,59 +6,82 @@ import './Admin.css'
 export default function Admin() {
   return (
     <>
-      <div
-        className="offcanvas offcanvas-start show text-bg-white canvas"
-        tabIndex={-1}
-        id="offcanvasDark"
-        aria-labelledby="offcanvasDarkLabel"
-        style={{ width: '180px' }}
-      >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasDarkLabel">
-            LOGO
-          </h5>
+      <div className="container-fluid">
+        <div className="row">
+
+          <nav
+            id="sidebarMenu"
+            className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+          >
+
+            <h5 className="logo p-0">
+              LOGO
+            </h5>
+            <div className="position-sticky pt-3 mr-4">
+              <ul className="nav flex-column">
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" href="#">
+                    <span data-feather="home" />
+                    Dashboard
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <span data-feather="file" />
+                    Bot
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <span data-feather="shopping-cart" />
+                    API
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <span data-feather="users" />
+                    Intergration
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <span data-feather="bar-chart-2" />
+                    Reports
+                  </a>
+                </li>
+
+                <hr />
+
+                <div className='side-menu-bottom'>
+                  <li className="nav-item">
+                    <a className="nav-link nav-bottom" href="#">
+                      <span data-feather="layers" />
+                      Notification
+                    </a>
+                  </li>
+                  <li className="nav-item nav-bottom">
+                    <a className="nav-link" href="#">
+                      <span data-feather="layers" />
+                      Customer care
+                    </a>
+                  </li>
+                  <li className="nav-item nav-bottom">
+                    <a className="nav-link" href="#">
+                      <span data-feather="layers" />
+                      Settings
+                    </a>
+                  </li>
+                </div>
+              </ul>
+
+            </div>
+          </nav>
 
         </div>
-        <div className="offcanvas-body p-0  ">
-          <div className='side-menu-nav pt-3 offcanvas-header'>
-            <ul>
-              <li className='side-menu'>
-                <FontAwesomeIcon icon={faGaugeSimple} className='icon' /> <a href="#">Dashboard</a>
-              </li>
-              <li className='side-menu'>
-                <FontAwesomeIcon icon={faBolt} className='icon' /> <a href="#">Bot</a>
-              </li>
-              <li className='side-menu'>
-                <FontAwesomeIcon icon={faUser} className='icon' /> <a href="#">API</a>
-              </li>
-              <li className='side-menu'>
-                <FontAwesomeIcon icon={faUser} className='icon' /><a href="#">Intergration</a>
-              </li>
-            </ul>
-          </div>
-          <hr />
-          <div className='side-menu-nav offcanvas-header'>
-            <div className='side-menu-bottom  mt-5'>
-              <ul>
-                <li className='side-menu-bottom'>
-                  <FontAwesomeIcon icon={faGaugeSimple} className='side-menu-bottom-icon' /> <a href="#">Notification</a>
-                </li>
-                <li className='side-menu-bottom'>
-                  <FontAwesomeIcon icon={faBolt} className='side-menu-bottom-icon' /> <a href="#">Customer care</a>
-                </li>
-                <li className='side-menu-bottom'>
-                  <FontAwesomeIcon icon={faUser} className='side-menu-bottom-icon' /> <a href="#">Settings</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
       </div>
 
 
-
-
     </>
-
   )
 }
