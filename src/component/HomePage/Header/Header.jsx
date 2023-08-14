@@ -1,11 +1,11 @@
-import React from 'react';
+import NavBar from '../NavBar/Navbar';
 import './Header.css';
 
 const Header = () => {
   return (
-    <section className="header">
-      <p>Hi, Barbie. This is the HEADER!</p>
-    </section>
+    <header className="header" data-section-theme="dark">
+      <NavBar />
+    </header>
   );
 };
 

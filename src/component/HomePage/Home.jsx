@@ -1,14 +1,17 @@
-import NavBar from './NavBar/Navbar';
+import Header from './Header/Header';
 import Hero from './Hero/Hero';
+import About from './About/About';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
-      <NavBar />
-      <Hero />
-      <div>
-        <h1>hi, Barbie!</h1>
-      </div>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+      </main>
     </>
   );
-}
+};
+
+export default Home;
