@@ -1,5 +1,4 @@
 import './NavBar.css';
-import React from 'react';
 import Logo from '../../../assets/logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -15,25 +14,23 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar fixed-top navbar-expand-lg border-bottom border-body m-3">
-      <div className="container-fluid">
-        <div className="nav-container">
-          <Link className="brand-logo" href="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <button
-          className="nav-bar-toggle"
-          aria-controls="navBarText"
-          type="button"
-          aria-label="Toggle navigation"
-          data-bs-toggle="collapse"
-          data-bs-target="#navBarText"
-          aria-expanded="false"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <nav className="collapse navbar-collapse" id="navbarText">
+    <div className="navbar navDefault fixed-top navbar-expand-lg">
+      <div className="container-fluid nav-container">
+        <Link className="nav-logo" href="/">
+          <img src={Logo} alt="Logo" />
+        </Link>
+        {/* <button
+            className="nav-bar-toggle"
+            aria-controls="navBarText"
+            type="button"
+            aria-label="Toggle navigation"
+            data-bs-toggle="collapse"
+            data-bs-target="#navBarText"
+            aria-expanded="false"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button> */}
+        <nav className="mainNav" id="navbarText" activeKey="/home">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">
