@@ -1,6 +1,10 @@
 @import url(../../../index.css);
-.section-about-us {
+.section-about {
+  padding: 2rem;
 }
 .headerHighlight {
   color: var(--color-red);
+}
+.p-1 {
+  margin-top: 3rem;
 }
