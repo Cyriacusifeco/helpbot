@@ -1,0 +1,35 @@
+@import url(../../../index.css);
+
+.hero-container {
+  text-align: left;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+.hero-article {
+  margin-left: 5rem;
+  margin-top: 12rem;
+  font-family: var(--font-family-base);
+  display: grid;
+  grid-column: auto;
+  grid-template-rows: 15rem;
+}
+.hero-article h1 {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xx-large);
+}
+.hero-article h4 {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+}
+.helpbot {
+  color: var(--color-red);
+}
+.startup {
+  font-family: var(--font-family-base);
+}
+.right {
+  padding-top: 5rem;
+}

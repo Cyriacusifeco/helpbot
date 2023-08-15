@@ -1,0 +1,115 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:700&display=swap);
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  display: block;
+}
+
+:root {
+  --color-primary: #2d4059;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-grey: #a0a0a0;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --color-orange: #f07b3f;
+  --color-yellow: #ffd460;
+  --color-red: #ea5455;
+
+  --font-family-base: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-title: 'Open Sans', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+
+  --font-size-small: 1.1rem;
+  --font-size-medium: 1.4rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.2rem;
+  --font-size-xx-large: 3.5rem;
+
+  --nav-item-font-family: var(--font-family-base);
+  --nav-item-font-weight: 400;
+  --nav-item-font-size: var(--font-size-medium);
+  --nav-item-letter-spacing: 0.04rem;
+  --nav-item-display: inline-block;
+  --nav-item-margin: 0 0 0 2rem;
+
+  --btn-display: inline-block;
+  --btn-padding: 1.5rem 3rem;
+  --btn-border-rad: 0.4rem;
+  --btn2-border: var(--color-red) solid 0.2rem;
+  --btn1-color: var(--color-white);
+  --btn2-color: var(--color-red);
+  --btn1-background: var(--color-red);
+  --btn2-background: transparent;
+  --btn-text-decoration: none;
+  --btn-font-size: var(--font-size-medium);
+  --btn-hover-color: var(--color-white);
+  --btn-hover-text-decoration: none;
+  --btn-hover-background: var(--color-primary);
+
+  --section-padding: 5rem 0;
+  --section-header-padding: 0 0 3rem;
+  --section-header-align: left;
+  --section-title-font-size: var(--font-size-xx-large);
+  --section-title-font-weight: 800;
+  --section-title-line-height: 1.2;
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+  --section-tagline-transform: uppercase;
+  --section-tagline-color: var(--color-primary);
+  --section-tagline-font-family: var(--font-family-title);
+  --section-tagline-font-weight: 700;
+  --section-tagline-font-size: var(--font-size-large);
+  --section-tagline-margin: 0;
+  --section-body-padding: 2rem 0 4rem;
+  --section-footer-padding: 3rem 0 0;
+  --section-footer-align: center;
+}
+::-webkit-scrollbar {
+  width: 8px; /* Width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange);
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Section Styles */
+.section {
+  padding: var(--section-padding);
+}
+.section-header {
+  text-align: var(--section-header-align);
+  padding: var(--section-header-padding);
+}
+.section-title {
+  font-size: var(--section-title-font-size);
+  font-weight: var(--section-title-font-weight);
+  line-height: var(--section-title-line-height);
+  margin: var(--section-title-margin);
+  color: var(--section-title-color);
+}
+.section-tagline {
+  color: var(--section-tagline-color);
+  font-family: var(--section-tagline-font-family);
+  text-transform: var(--section-tagline-transform);
+  font-weight: var(--section-tagline-font-weight);
+  margin: var(--section-tagline-margin);
+  font-size: var(--section-tagline-font-size);
+}
