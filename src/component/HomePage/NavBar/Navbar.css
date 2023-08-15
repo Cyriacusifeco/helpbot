@@ -47,32 +47,6 @@
   width: 100%;
   background: var(--color-red);
 }
-
-.btn-1 {
-  padding: 6px 20px;
-  background: var(--btn1-background);
-  border-radius: var(--btn-border-rad);
-  font-size: var(--font-size-small);
-  border: none;
-  color: var(--color-white);
-}
-.btn-1:hover {
-  background: var(--btn-hover-background);
-}
-.btn-2 {
-  padding: 4px 10px;
-  background: var(--btn2-background);
-  color: var(--color-black);
-
-  border-radius: var(--btn-border-rad);
-  border: var(--btn2-border);
-  font-size: var(--font-size-small);
-  margin-left: 1rem;
-}
-.btn-2:hover {
-  background: var(--btn-hover-background);
-  color: var(--color-white);
-}
 @media (max-width: 981px) {
   .navDefault {
     background: white;
