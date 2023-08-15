@@ -61,11 +61,6 @@ const NavBar = () => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link to="/dashboard" className="nav-link">
-                Demo
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
               <Nav.Link href="#features" className="nav-link">
                 Features
               </Nav.Link>
