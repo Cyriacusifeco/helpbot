@@ -4,7 +4,7 @@ import team from '../../../assets/about.svg';
 
 const About = () => {
   return (
-    <section className="section-about overflow-hidden py-5" id="about">
+    <section className="section-about section overflow-hidden py-5" id="about">
       <div className="about-text">
         <h1 className="section-header-title">About Us</h1>
         <div className="section-body">
