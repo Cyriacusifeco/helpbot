@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
+const axios = require('axios');
 
 
 
@@ -56,6 +57,7 @@ app.use(morgan('combined'));
 // Import necessary controllers to handle form submission
 const userController = require('./controllers/userController');
 const authController = require('./controllers/authController');
+const chatbotService = require('./controllers/chatbotService');
 
 // Use the userController to handle the registration form submission
 app.use('/api/business', userController);
@@ -70,6 +72,29 @@ app.get('/', (req, res) => {
   // Send the registration.html file as the response
   res.sendFile(filePath);
 });
+
+// Use the chatbotService to handle user chats
+app.use('/api', chatbotService);
+
+/*
+// Endpoint to communicate with the Python chatbot
+app.post('/api/chatbot', async (req, res) => {
+  try {
+    const { input_text } = req.body;
+
+    // Send user input to the Python script
+    const pythonResponse = await axios.post('http://localhost:7860/api/chatbot', { input_text });
+
+    // Extract the chatbot response from the Python response
+    const chatbotResponse = pythonResponse.data.response;
+
+    res.json({ response: chatbotResponse });
+  } catch (error) {
+    console.error('Error communicating with chatbot:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+*/
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

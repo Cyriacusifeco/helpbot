@@ -1,9 +1,13 @@
 from gpt_index import SimpleDirectoryReader, GPTListIndex, GPTSimpleVectorIndex, LLMPredictor, PromptHelper
 from langchain.chat_models import ChatOpenAI
+from flask import Flask, request, jsonify
 import gradio as gr
 from dotenv import load_dotenv
 import sys
 import os
+
+
+app = Flask(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -35,6 +39,7 @@ def chatbot(input_text):
     response = index.query(input_text, response_mode="compact")
     return response.response
 
+"""
 iface = gr.Interface(fn=chatbot,
                      inputs=gr.components.Textbox(lines=7, label="Enter your text"),
                      outputs="text",
@@ -42,3 +47,13 @@ iface = gr.Interface(fn=chatbot,
 
 index = construct_index("docs")
 iface.launch(share=True)
+"""
+
+@app.route('/api/chatbot', methods=['POST'])
+def chat_with_bot():
+    input_text = request.json.get('input_text')
+    response = chatbot(input_text)
+    return jsonify({'response': response})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7860)
