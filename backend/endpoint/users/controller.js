@@ -1,5 +1,8 @@
+#!/usr/bin/node
+// The users api controller
 const expressAsyncHandler = require('express-async-handler');
-const User = require('../models/usersModel.js');
+const User = require('../.../../../models/usersModel.js');
+const Business = require('../../models/businessModel.js');
 const bcrypt = require("bcrypt")
 const colors = require('colors')
 
@@ -19,13 +22,11 @@ const createUser = expressAsyncHandler(async (req, res) => {
     console.log(`hashed password: ${hashpassword}`.rainbow)
     const user  = await User.create({ username: req.body.username, 
         password: hashpassword, email: req.body.email });
-    console.log(user);
     res.status(201).json(user);
 });
 
 const getUsers = expressAsyncHandler(async (req, res) => {
     const users = await User.find();
-    console.log(`${users}`.cyan.underline);
     res.json(users);
 });
 
@@ -67,8 +68,21 @@ const deleteUser = expressAsyncHandler(async (req, res) => {
         res.status(404);
         throw new Error('user not found');
     }
-    const deleteUser = await User.findByIdAndDelete(req.params.id)
-    res.json(deleteUser);
+    
+    const holder = await User.deleteOne({_id: req.params.id});
+    holder ? res.status(200).json(user): res.status(404).json({message: 'user not deleted'});
 });
 
-module.exports = { createUser, getUsers, getUser, updateUser, deleteUser };
+
+const getBusinessByUser = expressAsyncHandler(async (req, res) => {
+    //Get all Businesses of a user
+    const business = await Business.find({user_id: req.params.user_id});
+    console.log(business)
+    if (!business) {
+        res.status(404);
+        throw new Error('business not found');
+    } 
+    res.status(200).json(business);
+});
+
+module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser };

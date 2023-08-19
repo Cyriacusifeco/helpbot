@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//Connect to MongoDB
+// Datbase Connection
 
 const mongoose = require('mongoose')
 

@@ -1,5 +1,11 @@
 #!/usr/bin/node
-// Learning express js
+// The overall structure of the server.js file is as follows:
+// 1. Import the required modules
+// 2. Initialize the app
+// 3. Connect to the database
+// 4. Define the routes
+// 5. Start the server
+// 6. Listen for requests
 const express = require('express')
 const colors =  require('colors')
 const mongoose = require('mongoose')
@@ -13,7 +19,8 @@ connectDB()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use('/api', require('./endpoint/users.js'))
+app.use('/api', require('./endpoint/users/users.js'))
+app.use('/api', require('./endpoint/business/business.js'))
 
 app.get('/', (req, res) => {
     res.json({'status': 'success', 'message': 'welcome to the Helpbot API'})

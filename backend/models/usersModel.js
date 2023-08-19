@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Goal Model
+// The User Model
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
