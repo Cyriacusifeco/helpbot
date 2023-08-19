@@ -4,7 +4,7 @@
   "description": "handling of user and other api's",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "author": "Oyebamiji Mustapha Oyetunde",

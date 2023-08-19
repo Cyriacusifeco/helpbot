@@ -3,10 +3,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
-const { CreateBusiness, getBusinesses, getBusiness, updateBusiness } = require('./controller.js')
+const { CreateBusiness, getBusinesses, getBusiness, updateBusiness, deleteBusiness, BusinessQueries } = require('./controller.js')
 
 router.route('/businesses').get(getBusinesses);
 router.route('/business/register').post(CreateBusiness);
-router.route('/business/:id').get(getBusiness).put(updateBusiness);
+router.route('/business/:id').get(getBusiness).put(updateBusiness).delete(deleteBusiness);
+router.route('/business/:business_id/queries').get(BusinessQueries);
 
 module.exports = router

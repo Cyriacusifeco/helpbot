@@ -21,6 +21,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api', require('./endpoint/users/users.js'))
 app.use('/api', require('./endpoint/business/business.js'))
+app.use('/api', require('./endpoint/query/query.js'))
 
 app.get('/', (req, res) => {
     res.json({'status': 'success', 'message': 'welcome to the Helpbot API'})

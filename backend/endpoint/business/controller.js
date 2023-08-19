@@ -3,6 +3,7 @@
 const expressAsyncHandler = require('express-async-handler');
 const User = require('../../models/usersModel.js');
 const Business = require('../../models/businessModel.js');
+const Query = require('../../models/queryModel.js');
 const colors = require('colors')
 
 const CreateBusiness = expressAsyncHandler(async (req, res) => {
@@ -55,6 +56,9 @@ const updateBusiness = expressAsyncHandler(async (req, res) => {
     if (req.body.contact_email) {
         updatedItems.contact_email = req.body.contact_email;
     }
+    if (req.body.knowledge_base) {
+        updatedItems.knowledge_base = req.body.knowledge_base;
+    }
     const UpdatedBusiness = await Business.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true})
     const newBusiness = await Business.findById(req.params.id);
     res.status(200).json(newBusiness);
@@ -70,4 +74,15 @@ const deleteBusiness = expressAsyncHandler(async (req, res) => {
     holder ? res.status(200).json(business): res.status(404).json({message: 'business not deleted'});
 });
 
-module.exports = { CreateBusiness, getBusinesses, getBusiness, updateBusiness, deleteBusiness};
+const BusinessQueries = expressAsyncHandler(async (req, res) => {
+    //Get all Queries of a business
+    const query = await Query.find({business_id: req.params.business_id});
+    if (!query) {
+        res.status(404);
+        throw new Error('query not found');
+    } 
+    res.status(200).json(query);
+});
+
+
+module.exports = { CreateBusiness, getBusinesses, getBusiness, updateBusiness, deleteBusiness, BusinessQueries};
