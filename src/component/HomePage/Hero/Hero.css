@@ -4,7 +4,6 @@
   text-align: left;
   padding-top: 10rem;
   padding-bottom: 10rem;
-  border: 1px solid cyan;
   display: flex;
   justify-content: space-between;
   height: 100vh;
@@ -15,7 +14,7 @@
   font-family: var(--font-family-base);
   display: grid;
   grid-column: auto;
-  grid-template-rows: 14rem;
+  grid-template-rows: 15rem;
 }
 .hero-article h1 {
   font-family: var(--font-family-title);

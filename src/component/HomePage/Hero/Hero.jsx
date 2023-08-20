@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className="hero-container h-50">
       <div className="left">
-        <div className="col-sm-6 hero-article pt-4 p-2">
+        <div className="col-sm-6 hero-article pt-4">
           <h1 className="heading-1 p-2  text-wrap">
             Enhance Your Customer Service with a Personalized{' '}
             <span className="helpbot">HelpBot!</span>
