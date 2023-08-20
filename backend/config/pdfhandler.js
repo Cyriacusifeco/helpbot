@@ -20,13 +20,15 @@ async function getPdfContent(pdfFilePath) {
 }
 
 // Usage
-const pdfFilePath = 'path/to/your/pdf/file.pdf';
-getPdfContent(pdfFilePath)
-  .then(content => {
-    if (content) {
-      console.log('PDF Content:', content);
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error.message);
-  });
+// const pdfFilePath = 'path/to/your/pdf/file.pdf';
+// getPdfContent(pdfFilePath)
+//   .then(content => {
+//     if (content) {
+//       console.log('PDF Content:', content);
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Error:', error.message);
+//   });
+
+  exports.getPdfContent = getPdfContent;
