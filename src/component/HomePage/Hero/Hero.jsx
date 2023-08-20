@@ -11,8 +11,8 @@ const Hero = () => {
             <span className="helpbot">HelpBot!</span>
           </h1>
           <h4 className="p-2 pb-3 lh-sm text-wrap">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-            lorem nibh.
+            Answer most customer questions instantly with conversational AI and
+            Provide hands-on support with live chat.
           </h4>
           <div className="startup p-2">
             <button className="btn-1">Build your Chatbot</button>

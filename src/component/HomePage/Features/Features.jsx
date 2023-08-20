@@ -57,7 +57,18 @@ const Features = () => {
             </li>
           </ul>
         </div>
-        ;
+      </div>
+      <div className="feature-hero">
+        <h1 className="section-feature-title">
+          Solve up to 70% of Customer problems in seconds with{' '}
+          <span className="helpbot">HelpBot</span>
+        </h1>
+        <p className="section-title-text">
+          Small and medium businesses can now scale their support capacity
+          without extra hiring. HelpBot talks to your customers and answers
+          their questions in an instant.
+        </p>
+        <button className="feat-btn">Build your Chatbot</button>
       </div>
     </section>
   );

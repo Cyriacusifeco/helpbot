@@ -3,6 +3,7 @@ import Hero from './Hero/Hero';
 import About from './About/About';
 import Features from './Features/Features';
 import Contact from './Contact/Contact';
+import Footer from './Footer/Footer';
 
 const Home = () => {
   return (
@@ -14,7 +15,9 @@ const Home = () => {
         <Features />
         <Contact />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
