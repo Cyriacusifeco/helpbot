@@ -1,41 +1,59 @@
+#!/usr/bin/node
 const express = require('express');
 const expressAsyncHandler = require('express-async-handler');
+const fileUpload = require('express-fileupload');
+const path = require('path');
 const getPdfContent = require('../../config/pdfhandler').getPdfContent;
-const multer = require('multer');
+const Business = require('../../models/businessModel.js');
+const fs = require('fs');
+const pdf = require('pdf-parse');
 
 const router = express.Router();
 
-// Configure multer for handling file uploads
-const storage = multer.memoryStorage(); // Store the file as buffer in memory
-const upload = multer({ storage: storage });
+router.post('/upload/:id', expressAsyncHandler(async (req, res) => {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  const uploadedFile = req.files.uploadedFile;
+  uploadedirect = path.join(__dirname, 'uploads');
+  const uploadedFilePath = path.join(__dirname, 'uploads', uploadedFile.name);
 
-// File upload route
-router.post('/upload', (req, res) => {
-  // Check if request contains data
-  if (!req.body) {
-    return res.status(400).send('No binary data received.');
+  if (!fs.existsSync(uploadedirect)) {
+    fs.mkdirSync(uploadedirect, { recursive: true });
   }
 
-  // Generate a unique filename
-  const fileName = `file_${Date.now()}.bin`;
+  console.log('Uploading file to:', uploadedFilePath);
 
-  // Build the file path
-  const filePath = path.join(__dirname, 'uploads');
-  console.log('File path:', filePath);
-  const fileFullPath = path.join(filePath, fileName);
-
-  // Save the binary data as a file
-  fs.writeFile(filePath, req.body, (err) => {
+  uploadedFile.mv(uploadedFilePath, (err) => {
     if (err) {
       console.error('Error saving file:', err);
-      return res.status(500).send('Error saving file.');
+      return res.status(500).send(err);
+    }
+  });
+  //const pdfcontent = await getPdfContent(uploadedFilePath);
+  let pdfcontent = '';
+  console.log(req.params.id);
+  const business = await Business.findById(req.params.id);
+  if (!business) {
+    res.status(404);
+    throw new Error('business not found');
+  }
+  fs.readFile(uploadedFilePath, (err, data) => {
+    if (err) {
+      console.error('Error reading PDF:', err);
+      res.status(404).json({ error: 'PDF not found' });
     }
 
-    console.log('File saved:', filePath);
-
-    // Respond with a success message
-    res.status(200).send('Binary data received, logged, and file saved.');
+    pdf(data).then((pdfData) => {
+      pdfcontent = pdfData.text;
+      //console.log('PDF Content:', pdfcontent);
+    });
   });
-});
+  const updatedItems = { "knowledge_base": pdfcontent };
+  const UpdatedBusiness = await Business.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true })
+  const newBusiness = await Business.findById(req.params.id);
+  res.status(200).json(newBusiness);
+
+}));
 
 module.exports = router;
