@@ -1,5 +1,6 @@
 import './Hero.css';
 import Hero_Img from '../../../assets/hero.svg';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -15,7 +16,10 @@ const Hero = () => {
             Provide hands-on support with live chat.
           </h4>
           <div className="startup p-2">
-            <button className="btn-1">Build your Chatbot</button>
+            <Link to="/dashboard">
+              <button className="btn-1">Build your Chatbot</button>
+            </Link>
+
             <button className="btn-2">Learn more</button>
           </div>
         </div>
