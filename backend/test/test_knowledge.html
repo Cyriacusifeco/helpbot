@@ -17,13 +17,13 @@
       $('#uploadButton').on('click', () => {
         const formData = new FormData();
         const fileInput = $('#fileInput')[0];
-        const idn = '64e4ed92bbca804a267b7556'
+        const idn = '64e6977b6f98f8df8b3019af'
 
         formData.append('uploadedFile', fileInput.files[0]);
 
         $.ajax({
           type: 'POST',
-          url: 'http://127.0.0.1:3000/file/upload/' + idn,
+          url: 'http://127.0.0.1:3000/file/knowledge/' + idn,
           data: formData,
           processData: false,
           contentType: false,

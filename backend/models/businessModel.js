@@ -5,13 +5,14 @@ const User = require('./usersModel.js');
 
 const businessSchema = new mongoose.Schema({
     business_name : String,
-    contact_name : String,
-    contact_email : String,
+    business_email : String,
+    pnumber: String,
     user_id : {
         type: mongoose.Schema.Types.ObjectId,
         ref: User
     },
-    knowledge_base : String
+    knowledge_name : String,
+    cac_name: String
 }, { timestamps: true });
 
 module.exports = mongoose.model('Business', businessSchema)

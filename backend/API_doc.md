@@ -1,0 +1,65 @@
+## Documentatiion of the API
+
+The documentation of **helpBot API** written by [Oyebamiji Mustapha](https://twiiter.com/musoye1)
+
+
+### Stats
+
+GET /api/stats -> state the number of users, businesses and queries in the api database
+
+
+### Users
+
+Data inside {_id, username, email, password, createdAt, updatedAt}
+
+GET /api/users -> get all users
+
+POST /api/users -> create a new user
+The json must contain **username and password**. The password will be hashed using bcrypt and salt with salt-round value of 10
+
+PUT /api/user/:id -> update a user with a particular id
+
+GET /api/user/:id -> get all info about a particular user with a particular id
+
+DELETE /api/user/:id -> delete a particular user with a particular id
+
+GET /users/:user_id/businesses -> get all businesses own by a user
+
+
+### Business
+Data inside {_id, business_name, business_email, user_id, pnumber->String, knowledge_name, cac_name, createdAt, updatedAt}
+
+GET /api/businesses -> get all Businesses
+
+POST /api/business/register-> create a new Business
+The json must contain **user_id, business_name and business_email**
+
+PUT /api/business/:id -> update a particuler business with information **except that of  knowledge_name and cac_name which are handled separately below**
+
+GET /business/:id -> get all info about a particular business with its id
+
+DELETE /business/:id -> Delete a Particular business
+
+GET /business/:business_id/queries -> Get all queries under a business
+
+knowledge file(bot)
+POST /file/knowledge/:id -> Send the file with a particular business id
+
+CAC file
+POST /file/cac/:id -> send the file with a particular business id
+
+### QUERIES
+
+Data inside {_id, query_text, response_text, feedback_text, feedback_rating->Number, business_id, createdAt, updatedAt}
+
+GET /api/queries-> get all queries
+
+POST /api//queries -> create a new query
+The json must contain **business_id, query_text**.
+
+PUT /api/queries/:id -> update a particular query
+
+GET /api/query/:id-> get all info about a particular query with a particular id
+
+DELETE /api//query/:id -> delete a particular query with a particular id
+

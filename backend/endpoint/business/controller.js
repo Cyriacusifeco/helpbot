@@ -16,12 +16,12 @@ const CreateBusiness = expressAsyncHandler(async (req, res) => {
         res.status(404);
         throw new Error('User not found');
     }
-    if (!req.body.business_name || !req.body.contact_name || !req.body.contact_email) {
+    if (!req.body.business_name || !req.body.business_email) {
         res.status(400);
         throw new Error('Please Enter a business name, contact name, or a contact email');
     }
     const business  = await Business.create({ business_name: req.body.business_name, 
-        contact_name: req.body.contact_name, contact_email: req.body.contact_email, user_id: req.body.user_id });
+        business_email: req.body.contact_email, pnumber: req.body.pnumber, user_id: req.body.user_id });
     res.status(201).json(business);
 });
 
@@ -50,14 +50,11 @@ const updateBusiness = expressAsyncHandler(async (req, res) => {
     if (req.body.business_name) {
         updatedItems.business_name = req.body.business_name;
     }
-    if (req.body.contact_name) {
-        updatedItems.contact_name = req.body.contact_name;
+    if (req.body.business_email) {
+        updatedItems.contact_email = req.body.business_email;
     }
-    if (req.body.contact_email) {
-        updatedItems.contact_email = req.body.contact_email;
-    }
-    if (req.body.knowledge_base) {
-        updatedItems.knowledge_base = req.body.knowledge_base;
+    if (req.body.pnumber) {
+        updatedItems.contact_email = req.body.pnumber;
     }
     const UpdatedBusiness = await Business.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true})
     const newBusiness = await Business.findById(req.params.id);
