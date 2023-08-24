@@ -12,14 +12,13 @@ const initialState = {
 
 // eslint-disable-next-line react/prop-types
 export const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state] = useReducer(reducer, initialState);
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ state }}>{children}</AppContext.Provider>
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAppContext = () => {
   return useContext(AppContext);
 };
