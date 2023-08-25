@@ -74,4 +74,15 @@ const deleteQuery = expressAsyncHandler(async (req, res) => {
     holder ? res.status(200).json(query): res.status(404).json({message: 'query not deleted'});
 });
 
-module.exports = { CreateQuery, getQueries, getQuery, updateQuery, deleteQuery};
+const querySearch = expressAsyncHandler(async (req, res) => {
+    //Search for a query
+    const search = {query_text: req.body.query_text, feedback_text: req.body.feedback_text, feedback_rating: req.body.feedback_rating}
+    const query = await Query.find(search);
+    if (!query) {
+        res.status(404);
+        throw new Error('query not found');
+    }
+    res.status(200).json(query);
+});
+
+module.exports = { CreateQuery, getQueries, getQuery, updateQuery, deleteQuery, querySearch};

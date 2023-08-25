@@ -27,7 +27,7 @@ GET /users/:user_id/businesses -> get all businesses own by a user
 
 
 ### Business
-Data inside {_id, business_name, business_email, user_id, pnumber->String, knowledge_name, cac_name, createdAt, updatedAt}
+Data inside {_id, business_name, business_email, user_id, industry,  pnumber->String, knowledge_name, cac_name, createdAt, updatedAt}
 
 GET /api/businesses -> get all Businesses
 
@@ -62,4 +62,19 @@ PUT /api/queries/:id -> update a particular query
 GET /api/query/:id-> get all info about a particular query with a particular id
 
 DELETE /api/query/:id -> delete a particular query with a particular id
+
+### searches
+NOTE: the key-value that will be take account for are the one mention in each cases below
+
+GET /api/users_search -> sent a json of key-value and what to search
+-> The result of users found will be sent back.
+You can only use the  key-value pair of  **username, email** in searching
+
+GET /api/businesses_search -> sent a json of key-value and what to search
+-> The result of businesses found will be sent back.
+You can only use the  key-value pair of  **business_name, business_email** in searching
+
+GET /api/queries_search -> sent a json of key-value and what to search
+-> The result of queries found will be sent back.
+You can only use the  key-value pair of  **query_text, feedback_text, feedback_rating** in searching
 

@@ -4,7 +4,8 @@ const expressAsyncHandler = require('express-async-handler');
 const User = require('../../models/usersModel.js');
 const Business = require('../../models/businessModel.js');
 const Query = require('../../models/queryModel.js');
-const colors = require('colors')
+const colors = require('colors');
+const { search } = require('./business.js');
 
 const CreateBusiness = expressAsyncHandler(async (req, res) => {
     if(!req.body.user_id){
@@ -21,7 +22,7 @@ const CreateBusiness = expressAsyncHandler(async (req, res) => {
         throw new Error('Please Enter a business name, contact name, or a contact email');
     }
     const business  = await Business.create({ business_name: req.body.business_name, 
-        business_email: req.body.contact_email, pnumber: req.body.pnumber, user_id: req.body.user_id });
+        business_email: req.body.business_email, industry: req.body.industry, pnumber: req.body.pnumber, user_id: req.body.user_id });
     res.status(201).json(business);
 });
 
@@ -51,10 +52,13 @@ const updateBusiness = expressAsyncHandler(async (req, res) => {
         updatedItems.business_name = req.body.business_name;
     }
     if (req.body.business_email) {
-        updatedItems.contact_email = req.body.business_email;
+        updatedItems.business_email = req.body.business_email;
     }
     if (req.body.pnumber) {
-        updatedItems.contact_email = req.body.pnumber;
+        updatedItems.pnumber = req.body.pnumber;
+    }
+    if (req.body.industry) {
+        updatedItems.industry = req.body.industry;
     }
     const UpdatedBusiness = await Business.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true})
     const newBusiness = await Business.findById(req.params.id);
@@ -81,5 +85,16 @@ const BusinessQueries = expressAsyncHandler(async (req, res) => {
     res.status(200).json(query);
 });
 
+const businessSearch = expressAsyncHandler(async (req, res) => {
+    //Search for a business
+    const search = {business_name: req.body.business_name, business_email: req.body.business_email}
+    const business = await Business.find(search);
+    if (!business) {
+        res.status(404);
+        throw new Error('business not found');
+    }
+    res.status(200).json(business);
+});
 
-module.exports = { CreateBusiness, getBusinesses, getBusiness, updateBusiness, deleteBusiness, BusinessQueries};
+
+module.exports = { CreateBusiness, getBusinesses, getBusiness, updateBusiness, deleteBusiness, BusinessQueries, businessSearch};

@@ -85,4 +85,20 @@ const getBusinessByUser = expressAsyncHandler(async (req, res) => {
     res.status(200).json(business);
 });
 
-module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser };
+const userSearch = expressAsyncHandler(async (req, res) => {
+    try {
+      if (!req.body) throw new Error('Please provide search criteria.');
+  
+      const search = {username: req.body.username, email: req.body.email}
+  
+      const users = await User.find(search);
+  
+      if (!users.length) throw new Error('No users found matching the search criteria.');
+  
+      res.json(users);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+});
+  
+module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser, userSearch };
