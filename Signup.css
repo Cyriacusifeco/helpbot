@@ -1,0 +1,140 @@
+.signIn-singUp {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+  transition: 1s 0.7s ease-in-out;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  transition: 0.2s 0.7s ease-in-out;
+  margin-top: 8rem;
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+
+.fContainer form.sign-up-form {
+  z-index: 1;
+  opacity: 0;
+}
+
+.title {
+  font-size: 3rem;
+  color: #204059;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.subtitle {
+  color: #444;
+  font-size: 1.3rem;
+}
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+.input-field .fIcon {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  padding-right: 0.5rem;
+  background-color: #f0f0f0 !important;
+  border-radius: 55px;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #333;
+  width: 100%;
+}
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.iBtn {
+  width: 160px;
+  height: 49px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #ea5455;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 10px 0;
+  transition: 0.5s;
+}
+.iBtn:hover {
+  background: #2d4059;
+}
+p.social-text {
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 870px) {
+  .fContainer {
+    min-height: 800px;
+    height: 100vh;
+  }
+  .signIn-singUp {
+    width: 100%;
+    top: 95%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .signIn-singUp,
+  .fContainer.sign-up-mode .signIn-singUp {
+    left: 50%;
+  }
+}
+
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+  }
+  .fContainer {
+    padding: 1.5rem;
+  }
+
+  .fContainer:before {
+    bottom: 72%;
+    left: 50%;
+  }
+
+  .fContainer.sign-up-mode::before {
+    bottom: 28%;
+    left: 50%;
+  }
+}
