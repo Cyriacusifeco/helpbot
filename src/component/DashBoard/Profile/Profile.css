@@ -1,3 +1,4 @@
+@import url('../../../index.css');
 .profile {
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
   background: #fff;
@@ -12,7 +13,8 @@
   font-weight: 500;
   padding: 0.5rem 0;
   margin-bottom: 0;
-  background-color: #eff2f7;
+  color: var(--color-light-grey);
+  background-color: var(--color-primary);
 }
 
 .profile img {
@@ -29,7 +31,7 @@
 
 .profile h5 {
   font-size: 1.1rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--color-dark-grey);
 }
 
 .profileInfo {
@@ -37,7 +39,7 @@
 }
 
 .mainBtn {
-  background: #7355f7;
+  background: var(--color-primary);
   padding: 13px 36px;
   display: inline-block;
   border-radius: 50px;
@@ -51,5 +53,5 @@
   cursor: pointer;
 }
 .mainBtn:hover {
-  background-color: #4c25f5;
+  background-color: var(--color-red);
 }
