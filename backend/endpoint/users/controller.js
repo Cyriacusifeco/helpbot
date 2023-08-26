@@ -12,6 +12,16 @@ const hashPassword = async (password) => {
     return await bcrypt.hash(password, salt)
 }
 
+const comparePassword = async (plainPassword, hashedPassword) => {
+    try {
+      const match = await bcrypt.compare(plainPassword, hashedPassword);
+      return match;
+    } catch (error) {
+      console.error('Error comparing passwords:', error);
+      return false;
+    }
+};
+
 const createUser = expressAsyncHandler(async (req, res) => {
     if (!req.body.username || !req.body.password) {
         res.status(400);
@@ -100,5 +110,20 @@ const userSearch = expressAsyncHandler(async (req, res) => {
       res.status(400).json({ message: error.message });
     }
 });
-  
-module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser, userSearch };
+
+const hashPass = expressAsyncHandler(async (req, res) => {
+    try {
+        const password = req.body.password
+        const hashpassword = await hashPassword(password);
+        const object = {password: hashpassword }
+        res.status(200).json(object)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+});
+
+const checkPass = expressAsyncHandler(async (req, res) => {
+    const result = await comparePassword(req.body.password, req.body.hashpassword);
+    res.status(200).json({matches: result})
+})
+module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser, checkPass, userSearch, hashPass};

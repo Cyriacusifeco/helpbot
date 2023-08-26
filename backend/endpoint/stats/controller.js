@@ -12,7 +12,7 @@ const ApiStats = expressAsyncHandler(async (req, res) => {
     const business = (await Business.find()).length
     const query = (await Query.find()).length
     const result = {
-        'users': user,
+        'Users': user,
         'Businesses': business,
         'Queries' : query
     }
