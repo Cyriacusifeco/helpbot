@@ -5,10 +5,15 @@ const router = express.Router();
 // Endpoint to communicate with the Python chatbot
 router.post('/chatbot', async (req, res) => {
   try {
-    const { input_text } = req.body;
+    const { apiKey, input_text } = req.body;
 
-    // Send user input to the Python script
-    const pythonResponse = await axios.post('http://localhost:7860/api/chatbot', { input_text });
+    // Send user input and API key to the Python script
+    const pythonResponse = await axios.post('http://localhost:7860/api/chatbot', { 
+	    apiKey,
+	    input_text,
+    });
+
+console.log('Python Response:', pythonResponse);
 
     // Extract the chatbot response from the Python response
     const chatbotResponse = pythonResponse.data.response;
