@@ -13,6 +13,7 @@ const businessSchema = new mongoose.Schema({
         ref: User
     },
     knowledge_name : String,
+    knowledge_content: String,
     cac_name: String
 }, { timestamps: true });
 

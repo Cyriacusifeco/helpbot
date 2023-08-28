@@ -18,7 +18,7 @@ const CreateBusiness = expressAsyncHandler(async (req, res) => {
     }
     if (!req.body.business_name || !req.body.business_email) {
         res.status(400);
-        throw new Error('Please Enter a business name, contact name, or a contact email');
+        throw new Error('Please Enter a business name, business email or user_id');
     }
     const business  = await Business.create({ business_name: req.body.business_name, 
         business_email: req.body.business_email, industry: req.body.industry, pnumber: req.body.pnumber, user_id: req.body.user_id });

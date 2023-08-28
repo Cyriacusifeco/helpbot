@@ -10,7 +10,7 @@ GET /api/stats -> state the number of users, businesses and queries in the api d
 
 ### Users
 
-Data inside {_id, username, email, password, createdAt, updatedAt}
+Data inside {_id, username, email, password, api_key(handled separately) createdAt, updatedAt}
 
 GET /api/users -> get all users
 
@@ -25,16 +25,23 @@ DELETE /api/user/:id -> delete a particular user with a particular id
 
 GET /users/:user_id/businesses -> get all businesses own by a user
 
+### Api Token/Key
+The request here must conatin the user_id as **user_id** in the json
+This handle generatin of Token it will return a json of this format {api_key: api_key}
+
+GET /api/gen_token -> generation of an api token/key
+GET /api/get_token -> retrieving of an api token /key
+
 
 ### Business
-Data inside {_id, business_name, business_email, user_id, industry,  pnumber->String, knowledge_name, cac_name, createdAt, updatedAt}
+Data inside {_id, business_name, business_email, user_id, industry,  pnumber->String, knowledge_name, knowledge_content cac_name, createdAt, updatedAt}
 
 GET /api/businesses -> get all Businesses
 
 POST /api/business/register-> create a new Business.
 The json must contain **user_id, business_name and business_email**
 
-PUT /api/business/:id -> update a particuler business with information **except that of  knowledge_name and cac_name which are handled separately below**
+PUT /api/business/:id -> update a particuler business with information **except that of  knowledge_name, knowledge_content and cac_name which are handled separately below**
 
 GET /business/:id -> get all info about a particular business with its id
 
@@ -43,7 +50,7 @@ DELETE /business/:id -> Delete a Particular business
 GET /business/:business_id/queries -> Get all queries under a business
 
 ###### knowledge file(bot)
-POST /file/knowledge/:id -> Send the file with a particular business id
+POST /file/knowledge/:id -> Send the file with a particular business id. The content of the pdf file will be in knowledge_content
 
 ###### CAC file
 POST /file/cac/:id -> send the file with a particular business id

@@ -4,6 +4,7 @@ const expressAsyncHandler = require('express-async-handler');
 const User = require('../.../../../models/usersModel.js');
 const Business = require('../../models/businessModel.js');
 const bcrypt = require("bcrypt")
+const { v4: uuidv4 } = require('uuid');
 const colors = require('colors')
 
 const hashPassword = async (password) => {
@@ -125,5 +126,34 @@ const hashPass = expressAsyncHandler(async (req, res) => {
 const checkPass = expressAsyncHandler(async (req, res) => {
     const result = await comparePassword(req.body.password, req.body.hashpassword);
     res.status(200).json({matches: result})
+});
+
+const genApiKey = expressAsyncHandler(async (req, res) => {
+    if (!req.body.user_id) {
+        res.status(400);
+        throw new Error('Please Enter a user_id');
+    }
+    const user = await User.findById(req.body.user_id);
+    if (!user) {
+        res.status(404);
+        throw new Error('user not found');
+    }
+    const api_key = 'hpb_' + uuidv4();
+    const UpdatedUser = await User.findByIdAndUpdate(req.body.user_id, { $set: {api_key: api_key} }, { new: true});
+    res.status(200).json({api_key: api_key});
+});
+
+const getApikey = expressAsyncHandler(async (req, res) => {
+    if (!req.body.user_id) {
+        res.status(400);
+        throw new Error('Please Enter a user_id');
+    }
+    const user = await User.findById(req.body.user_id);
+    if (!user) {
+        res.status(404);
+        throw new Error('user not found');
+    }
+    api_key = user.api_key;
+    res.status(200).json({api_key: api_key});
 })
-module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser, checkPass, userSearch, hashPass};
+module.exports = { createUser, getUsers, getUser, updateUser, deleteUser, getBusinessByUser, checkPass, userSearch, hashPass, genApiKey, getApikey};
