@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faLock,
+  faLink,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Signup = () => {
   const {
@@ -23,20 +28,18 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form
-            method="POST"
-            action="/api/business/register"
-            className="sign-up-form"
-          >
-            <h2 className="title">Sign Up</h2>
+          <form method="POST" action="/account-info" className="sign-up-form">
+            <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
               <span className="fIcon">
                 <FontAwesomeIcon icon={faUser} />
               </span>
               <input
-                placeholder="Name"
-                {...register('name', { required: true })}
+                type="text"
+                placeholder="Username"
+                required
+                {...register('username')}
               />
             </div>
             <div className="input-field">
@@ -45,6 +48,7 @@ const Signup = () => {
               </span>
               <input
                 placeholder="Email"
+                type="email"
                 {...register('email', { required: true })}
               />
             </div>
@@ -53,15 +57,28 @@ const Signup = () => {
             )}
             <div className="input-field">
               <span className="fIcon">
+                <FontAwesomeIcon icon={faLink} />
+              </span>
+              <input
+                placeholder="Website"
+                type="url"
+                {...register('website', { required: true })}
+              />
+            </div>
+            <div className="input-field">
+              <span className="fIcon">
                 <FontAwesomeIcon icon={faLock} />
               </span>
               <input
                 type="password"
                 placeholder="Password"
-                {...register('password', { required: true })}
+                required
+                {...register('password')}
               />
             </div>
-            <input className="iBtn" type="submit" value="sign Up" />
+            <Link to="/account-info">
+              <input className="iBtn" type="submit" value="sign up" />
+            </Link>
             <p className="social-text">
               Already have an account? <Link to="/LogIn">Log In</Link>
             </p>

@@ -1,6 +1,6 @@
 .signIn-singUp {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 75%;
   transform: translate(-50%, -50%);
   width: 50%;
@@ -19,7 +19,7 @@ form {
   grid-column: 1/2;
   grid-row: 1/2;
   transition: 0.2s 0.7s ease-in-out;
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 form.sign-in-form {
@@ -137,4 +137,16 @@ p.social-text {
     bottom: 28%;
     left: 50%;
   }
+}
+/* Acccount info */
+.input-field select {
+  background-color: #f0f0f0;
+  border: none;
+  outline: none;
+  border-radius: 55px;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem;
+  appearance: none;
 }

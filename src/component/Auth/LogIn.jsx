@@ -48,7 +48,9 @@ const LogIn = () => {
                 {...register('password', { required: true })}
               />
             </div>
-            <input className="iBtn" type="submit" value="Login" />
+            <Link to="/dasboard">
+              <input className="iBtn" type="submit" value="Login" />
+            </Link>
             <p className="social-text">
               Do not have an account yet? <Link to="/SignUp">Sign Up</Link>
             </p>
