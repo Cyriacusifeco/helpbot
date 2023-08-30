@@ -149,12 +149,12 @@ a {
   padding: var(--section-footer-padding);
   text-align: var(--section-footer-align);
 }
-[data-section-theme='dark'] {
+/* [data-section-theme='dark'] {
   --button-color: var(--color-white);
   --text-color: var(--color-white);
   --section-title-color: var(--color-white);
   background: var(--color-dark-grey);
-}
+} */
 
 /* BUTTONS */
 .btn-1 {

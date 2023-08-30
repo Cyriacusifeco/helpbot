@@ -1,8 +1,16 @@
 import './Hero.css';
 import Hero_Img from '../../../assets/hero.svg';
 import { Link } from 'react-router-dom';
+// import { alpha, useTheme } from '@mui/material/styles';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Hero = () => {
+  // const theme = useTheme();
+
+  // const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  //   defaultMatches: true,
+  // });
+
   return (
     <div className="hero-container h-50">
       <div className="left">

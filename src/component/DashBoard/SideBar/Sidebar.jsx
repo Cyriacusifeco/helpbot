@@ -6,10 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
-  // const {
-  //   state: { admin },
-  // } = useAppContext();
-
   return (
     <div>
       <div className="sideBrand">
