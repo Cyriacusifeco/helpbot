@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from '../Auth/Signup';
 import LogIn from '../Auth/LogIn';
@@ -21,11 +16,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
-          <Switch>
-            <Route path="/signup" exact component={<Signup />} />
-            <Route path="/signup/account-info" component={<AcctInfo />} />
-          </Switch>
-
+          <Route path="/signup" exact element={<Signup />} />
+          <Route path="/signup/account-info" element={<AcctInfo />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           {/* <Route path="/profile" element={<Profile />} /> */}
