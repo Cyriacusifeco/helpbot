@@ -1,16 +1,34 @@
 import '../App/App.css';
 import './Signup.css';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const Signup = () => {
   const {
-    register,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/signup/account-info');
+  };
   return (
     <div className="container mt-5">
       <div className="row">
@@ -23,20 +41,21 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form
-            method="POST"
-            action="/api/business/register"
-            className="sign-up-form"
-          >
-            <h2 className="title">Sign Up</h2>
+          <form method="POST" action="/account-info" onSubmit={handleSubmit}>
+            <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
               <span className="fIcon">
                 <FontAwesomeIcon icon={faUser} />
               </span>
               <input
-                placeholder="Name"
-                {...register('name', { required: true })}
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                placeholder="Username"
+                onChange={handleChange}
+                required
               />
             </div>
             <div className="input-field">
@@ -44,24 +63,36 @@ const Signup = () => {
                 <FontAwesomeIcon icon={faEnvelope} />
               </span>
               <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 placeholder="Email"
-                {...register('email', { required: true })}
+                onChange={handleChange}
+                required
               />
             </div>
             {errors.email && (
               <span className="text-warning">This field is required</span>
             )}
+
             <div className="input-field">
               <span className="fIcon">
                 <FontAwesomeIcon icon={faLock} />
               </span>
               <input
+                id="password"
+                name="password"
+                value={formData.password}
+                placeholder="Enter password"
+                onChange={handleChange}
+                required
                 type="password"
-                placeholder="Password"
-                {...register('password', { required: true })}
               />
             </div>
-            <input className="iBtn" type="submit" value="sign Up" />
+            <Link to="/signup/account-info">
+              <input className="iBtn" type="submit" value="Continue" />
+            </Link>
             <p className="social-text">
               Already have an account? <Link to="/LogIn">Log In</Link>
             </p>
