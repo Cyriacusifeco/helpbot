@@ -1,14 +1,16 @@
 import './Dashboard.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Profile from './Profile/Profile';
+// import axios from 'axios';
+import { useState } from 'react';
+// import Profile from './Profile/Profile';
+import UserDashboard from './UserDashboard/UserDashboard';
 import SideBar from './SideBar/Sidebar';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Dashboard = () => {
   const [sideToggle, setSideToggle] = useState(false);
-  const [setTitle] = useState('HelpBot');
+  const [setTitle, title] = useState('HelpBot');
 
   return (
     <div id="dashboard">
@@ -19,7 +21,7 @@ const Dashboard = () => {
             <Link to="/">
               <button className="backBtn">
                 <FontAwesomeIcon icon={faSignOutAlt} />
-                back to home
+                Back to home
               </button>
             </Link>
           </div>
@@ -40,12 +42,10 @@ const Dashboard = () => {
               <span></span>
               <span></span>
             </div>
+            <h3>{title}</h3>
           </div>
         </div>
-        <Profile />
-        {/* {
-            admin ? <AdminDashboard /> : <UserDashboard />
-        } */}
+        <UserDashboard />
       </div>
     </div>
   );
