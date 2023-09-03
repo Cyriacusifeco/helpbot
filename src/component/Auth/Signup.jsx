@@ -1,6 +1,7 @@
 import '../App/App.css';
 import './Signup.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +13,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -26,7 +27,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push('/signup/account-info');
+    navigate('/signup/account-info');
   };
   return (
     <div className="container mt-5">
@@ -40,12 +41,7 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form
-            method="POST"
-            action="/account-info"
-            onSubmit={handleSubmit}
-            className="sign-up-form"
-          >
+          <form method="POST" action="/account-info" onSubmit={handleSubmit}>
             <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
@@ -54,7 +50,6 @@ const Signup = () => {
               </span>
               <input
                 type="text"
-                className="form-control"
                 id="username"
                 name="username"
                 value={formData.username}
@@ -69,7 +64,6 @@ const Signup = () => {
               </span>
               <input
                 type="email"
-                className="form-control"
                 id="email"
                 name="email"
                 value={formData.email}
@@ -87,7 +81,6 @@ const Signup = () => {
                 <FontAwesomeIcon icon={faLock} />
               </span>
               <input
-                className="form-control"
                 id="password"
                 name="password"
                 value={formData.password}
