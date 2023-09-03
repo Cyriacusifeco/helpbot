@@ -1,21 +1,33 @@
 import '../App/App.css';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEnvelope,
-  faLock,
-  faLink,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const Signup = () => {
   const {
-    register,
     formState: { errors },
   } = useForm();
+
+  const history = useHistory();
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push('/signup/account-info');
+  };
   return (
     <div className="container mt-5">
       <div className="row">
@@ -28,7 +40,12 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form method="POST" action="/account-info" className="sign-up-form">
+          <form
+            method="POST"
+            action="/account-info"
+            onSubmit={handleSubmit}
+            className="sign-up-form"
+          >
             <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
@@ -37,9 +54,13 @@ const Signup = () => {
               </span>
               <input
                 type="text"
+                className="form-control"
+                id="username"
+                name="username"
+                value={formData.username}
                 placeholder="Username"
+                onChange={handleChange}
                 required
-                {...register('username')}
               />
             </div>
             <div className="input-field">
@@ -47,37 +68,37 @@ const Signup = () => {
                 <FontAwesomeIcon icon={faEnvelope} />
               </span>
               <input
-                placeholder="Email"
                 type="email"
-                {...register('email', { required: true })}
+                className="form-control"
+                id="email"
+                name="email"
+                value={formData.email}
+                placeholder="Email"
+                onChange={handleChange}
+                required
               />
             </div>
             {errors.email && (
               <span className="text-warning">This field is required</span>
             )}
-            <div className="input-field">
-              <span className="fIcon">
-                <FontAwesomeIcon icon={faLink} />
-              </span>
-              <input
-                placeholder="Website"
-                type="url"
-                {...register('website', { required: true })}
-              />
-            </div>
+
             <div className="input-field">
               <span className="fIcon">
                 <FontAwesomeIcon icon={faLock} />
               </span>
               <input
-                type="password"
-                placeholder="Password"
+                className="form-control"
+                id="password"
+                name="password"
+                value={formData.password}
+                placeholder="Enter password"
+                onChange={handleChange}
                 required
-                {...register('password')}
+                type="password"
               />
             </div>
-            <Link to="/account-info">
-              <input className="iBtn" type="submit" value="sign up" />
+            <Link to="/signup/account-info">
+              <input className="iBtn" type="submit" value="Continue" />
             </Link>
             <p className="social-text">
               Already have an account? <Link to="/LogIn">Log In</Link>

@@ -48,11 +48,11 @@ const LogIn = () => {
                 {...register('password', { required: true })}
               />
             </div>
-            <Link to="/dasboard">
+            <Link to="/dashboard">
               <input className="iBtn" type="submit" value="Login" />
             </Link>
             <p className="social-text">
-              Do not have an account yet? <Link to="/SignUp">Sign Up</Link>
+              Do not have an account yet? <Link to="/signup">Sign Up</Link>
             </p>
           </form>
         </div>
