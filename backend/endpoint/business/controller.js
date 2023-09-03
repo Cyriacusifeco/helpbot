@@ -21,7 +21,7 @@ const CreateBusiness = expressAsyncHandler(async (req, res) => {
         throw new Error('Please Enter a business name, business email or user_id');
     }
     const business  = await Business.create({ business_name: req.body.business_name, 
-        business_email: req.body.business_email, industry: req.body.industry, pnumber: req.body.pnumber, user_id: req.body.user_id });
+        business_email: req.body.business_email, business_website: req.body.business_website, industry: req.body.industry, pnumber: req.body.pnumber, user_id: req.body.user_id });
     res.status(201).json(business);
 });
 
@@ -52,6 +52,9 @@ const updateBusiness = expressAsyncHandler(async (req, res) => {
     }
     if (req.body.business_email) {
         updatedItems.business_email = req.body.business_email;
+    }
+    if (req.body.business_website) {
+        updatedItems.business_website = req.body.business_website;
     }
     if (req.body.pnumber) {
         updatedItems.pnumber = req.body.pnumber;

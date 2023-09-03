@@ -6,6 +6,7 @@ const User = require('./usersModel.js');
 const businessSchema = new mongoose.Schema({
     business_name : String,
     business_email : String,
+    business_website : String,
     pnumber: String,
     industry: String,
     user_id : {
