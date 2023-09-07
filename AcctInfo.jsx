@@ -47,11 +47,7 @@ const AcctInfo = () => {
                 <img src={Logo} alt="logo" />
               </a>
             </div>
-            <img
-              src="../../assets/2.jpeg"
-              alt="pic"
-              className="img-fluid image"
-            />
+            <img src="src/assets/2.jpeg" alt="pic" className="img-fluid image" />
           </div>
           <div className="col-md-6 log-in p-3">
             <form
