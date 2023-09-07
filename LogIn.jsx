@@ -4,8 +4,19 @@ import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { useAuthContext } from '../../context/app-context';
 
 const LogIn = () => {
+  const { state, dispatch } = useAuthContext();
+
+  const handleLogin = () => {
+    const user = { id: 1, name: 'John' };
+    dispatch({ type: 'LOGIN', payload: { user } });
+  };
+  // const handleLogout = () => {
+  //   // Simulate a logout action
+  //   dispatch({ type: 'LOGOUT' });
+  // };
   const {
     register,
     formState: { errors },
@@ -23,7 +34,10 @@ const LogIn = () => {
         </div>
         <div className="col-md-6 log-in p-3">
           <form className="sign-in-form">
-            <h2 className="title">Welcome back! </h2>
+            <h2>
+              Welcome back! {state.user ? state.user.name : 'Not logged in'}{' '}
+            </h2>
+            {/* <h2 className="title">Welcome back! { state.user ? state.user.name } </h2> */}
             <p className="subtitle">Please enter your credentials</p>
 
             <div className="input-field">
@@ -49,7 +63,12 @@ const LogIn = () => {
               />
             </div>
             <Link to="/dashboard">
-              <input className="iBtn" type="submit" value="Login" />
+              <input
+                onClick={handleLogin}
+                className="iBtn"
+                type="submit"
+                value="Login"
+              />
             </Link>
             <p className="social-text">
               Do not have an account yet? <Link to="/signup">Sign Up</Link>
