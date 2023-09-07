@@ -170,6 +170,9 @@ a {
   background: var(--btn-hover-background);
   box-shadow: 1px 1px 5px #ea5455;
 }
+.btn-1 a {
+  color: var(--color-white);
+}
 .btn-2 {
   padding: 4px 10px;
   background: var(--btn2-background);

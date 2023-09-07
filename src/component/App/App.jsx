@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/signup/account-info" element={<AcctInfo />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
           <Route path="*" element={<NotFound />} />

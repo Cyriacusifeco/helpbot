@@ -1,24 +1,49 @@
 import { useReducer } from 'react';
 import { useContext } from 'react';
 import { createContext } from 'react';
-import { reducer } from './reducer';
-
-const AppContext = createContext();
 
 const initialState = {
-  admin: false,
-  selectedService: {},
+  user: null,
+  isAuthenticated: false,
+};
+const AuthContext = createContext();
+
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return {
+        ...state,
+        user: action.payload.user,
+        isAuthenticated: true,
+      };
+    case 'LOGOUT':
+      return {
+        ...state,
+        user: null,
+        isAuthenticated: false,
+      };
+    default:
+      return state;
+  }
 };
 
+// Create a custom provider component to wrap your app
 // eslint-disable-next-line react/prop-types
-export const AppProvider = ({ children }) => {
-  const [state] = useReducer(reducer, initialState);
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, initialState);
+
   return (
-    <AppContext.Provider value={{ state }}>{children}</AppContext.Provider>
+    <AuthContext.Provider value={{ state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useAppContext = () => {
-  return useContext(AppContext);
+// Create custom hooks for using your context
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuthContext must be used within an AuthProvider');
+  }
+  return context;
 };
