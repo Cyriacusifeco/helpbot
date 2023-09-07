@@ -5,12 +5,21 @@ import { useState } from 'react';
 // import Profile from './Profile/Profile';
 import UserDashboard from './UserDashboard/UserDashboard';
 import SideBar from './SideBar/Sidebar';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+// import Bot from './UserDashboard/Bots/Bot';
+import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { useAuthContext } from '../../context';
 
 const Dashboard = () => {
   const [sideToggle, setSideToggle] = useState(false);
-  const [setTitle, title] = useState('HelpBot');
+  const [title, setTitle] = useState('HelpBot');
+  // const { state: user, admin } = useAuthContext();
+  // const [displayBot, setDisplayBot] = useState(true);
+
+  // Function to toggle between Bot and UserDashboard
+  // const toggleDisplay = () => {
+  //   setDisplayBot(!displayBot);
+  // };
 
   return (
     <div id="dashboard">
@@ -44,7 +53,17 @@ const Dashboard = () => {
             </div>
             <h3>{title}</h3>
           </div>
+          <div className="bot-btn btn-1">
+            <a
+              href="/dashboard/onboarding/step-1-orientation"
+              className="bot-flex"
+            >
+              <FontAwesomeIcon className="bot-icon" icon={faPlus} />
+              Create Bot
+            </a>
+          </div>
         </div>
+        {/* <button onClick={toggleDisplay}>Toggle Display</button> */}
         <UserDashboard />
       </div>
     </div>

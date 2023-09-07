@@ -95,7 +95,9 @@
   outline: none;
   border: none;
 }
-
+.bot-flex .bot-icon {
+  margin-right: 0.5rem;
+}
 /* Menu Hamburger Icon Animation */
 
 #nav-icon {

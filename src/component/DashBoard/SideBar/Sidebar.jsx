@@ -8,8 +8,13 @@ import {
   faRobot,
   faInbox,
 } from '@fortawesome/free-solid-svg-icons';
+import { useAuthContext } from '../../../context';
 
-const Sidebar = () => {
+const Sidebar = ({ setTitle }) => {
+  const {
+    state: { user },
+  } = useAuthContext();
+
   return (
     <div>
       <div className="sideBrand">
@@ -19,24 +24,57 @@ const Sidebar = () => {
       </div>
       <nav id="sideNavbar">
         <ul>
-          <li>
-            <NavLink activeclassname="activePage" exact to="/dashboard/chatbot">
-              <FontAwesomeIcon icon={faRobot} className="iconC" />
-              Chatbots
-            </NavLink>
-          </li>
-          <li>
-            <NavLink>
-              <FontAwesomeIcon icon={faInbox} className="iconC" />
-              Inbox
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeclassname="activePage" exact to="/dashboard/profile">
-              <FontAwesomeIcon icon={faUserCircle} className="iconC" />
-              Profile
-            </NavLink>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <NavLink
+                  onClick={() => setTitle('Profile')}
+                  activeclassname="activePage"
+                  exact
+                  to="/dashboard/profile"
+                >
+                  <FontAwesomeIcon icon={faUserCircle} className="iconC" />
+                  Profile
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink
+                  onClick={() => setTitle('Bots')}
+                  activeclassname="activePage"
+                  exact
+                  to="/dashboard/chatbot"
+                >
+                  <FontAwesomeIcon icon={faRobot} className="iconC" />
+                  Chatbots
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setTitle('Conversations')}
+                  activeclassname="activePage"
+                  exact
+                  to="/dashboard/inbox"
+                >
+                  <FontAwesomeIcon icon={faInbox} className="iconC" />
+                  Inbox
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setTitle('Profile')}
+                  activeclassname="activePage"
+                  exact
+                  to="/dashboard/profile"
+                >
+                  <FontAwesomeIcon icon={faUserCircle} className="iconC" />
+                  Profile
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </div>
