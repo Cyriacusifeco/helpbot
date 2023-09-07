@@ -72,3 +72,37 @@ ul.features-row a {
   transition-duration: 0.3s;
   transition-property: color, background-color;
 }
+.feature-hero {
+  height: 80vh;
+  padding: 10rem 3rem 3rem 3rem;
+  background-color: linear-gradient(
+    to bottom,
+    var(--color-light-grey),
+    #aaaacc
+  );
+  display: grid;
+  place-content: center;
+}
+.section-feature-title {
+  color: var(--color-primary);
+  text-align: center;
+  font-size: 5rem;
+  padding: 3rem 10rem;
+  font-weight: 500;
+}
+.section-title-text {
+  font-size: var(--font-size-large);
+  columns: var(--color-dark-grey);
+  text-align: center;
+  margin: 0 20rem 7rem;
+}
+.feat-btn {
+  padding: 10px 30px;
+  margin: auto;
+  background: var(--btn1-background);
+  border-radius: var(--btn-border-rad);
+  font-size: var(--font-size-small);
+  border: none;
+  color: var(--color-white);
+  box-shadow: 1px 2px 5px #aaa;
+}

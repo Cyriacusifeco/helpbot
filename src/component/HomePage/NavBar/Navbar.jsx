@@ -72,13 +72,8 @@ const NavBar = () => {
             </Nav.Item>
             <Nav.Item>
               <div className="nav-btns">
-                <Link to="/dashboard">
-                  <button className="btn-1" type="submit">
-                    Try Demo
-                  </button>
-                </Link>
-                <Link to="/login">
-                  <button className="btn-2">Get Started</button>
+                <Link to="/signup">
+                  <button className="btn-1">Get Started</button>
                 </Link>
               </div>
             </Nav.Item>
