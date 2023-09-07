@@ -16,10 +16,11 @@ const Profile = () => {
         <h2>Profile</h2>
         <div className="profileInfo">
           <img src={userimg} alt="" />
-          <h3>Business Name</h3>
+          <h4>Business Name</h4>
+          <h5>Website </h5>
           <h5>Username</h5>
           <h5>Email Address</h5>
-          <h5>Website url</h5>
+          <h5>Website </h5>
           <h5>Industry</h5>
           <button className="mainBtn mt-3" onClick={toggleFormVisibility}>
             Update Profile
