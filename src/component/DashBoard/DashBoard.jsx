@@ -54,10 +54,7 @@ const Dashboard = () => {
             <h3>{title}</h3>
           </div>
           <div className="bot-btn btn-1">
-            <a
-              href="/dashboard/onboarding/step-1-orientation"
-              className="bot-flex"
-            >
+            <a href="/dashboard/create-bot/onboarding" className="bot-flex">
               <FontAwesomeIcon className="bot-icon" icon={faPlus} />
               Create Bot
             </a>

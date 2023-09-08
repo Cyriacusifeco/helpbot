@@ -1,5 +1,5 @@
 import { Col } from 'react-bootstrap';
-import '../Bot.css';
+import './Chatbots.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
