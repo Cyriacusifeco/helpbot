@@ -1,37 +1,22 @@
-import { Col } from 'react-bootstrap';
-import '../Bot.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import Chatbot from "react-chatbot-kit";
+import config from "./configs/chatbotConfig";
+import MessageParser from "./chatbot/MessageParser";
+import ActionProvider from "./chatbot/ActionProvider";
+import 'react-chatbot-kit/build/main.css';
+//import '../Bot.css';
 
-const Bot = () => {
+const Chatbots = () =>  {
   return (
     <>
-      <div className="bots-container">
-        <Col md={5} className="mx-auto">
-          <div className="profile">
-            <h3>Helpbot Chatbot</h3>
-            <div className="profileInfo">
-              <div className="main-content">
-                <h4>Hi, Barbie</h4>
-                <p>Date created</p>
-              </div>
-              <p>
-                Open <FontAwesomeIcon icon={faArrowCircleRight} />
-              </p>
-            </div>
-          </div>
-        </Col>
-        <Col md={5} className="mx-auto">
-          <div className="profile">
-            <h2>Hi , babrbie!</h2>
-            <h2>Hi, Barbie!</h2>
-            <h2>Hi, Barbie!</h2>
-            <h2>Hi, Barbie!</h2>
-          </div>
-        </Col>
-      </div>
+    <div >
+       <Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProvider}
+      />
+    </div>
     </>
   );
-};
+}
 
-export default Bot;
+export default Chatbots;
