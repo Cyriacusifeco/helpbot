@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "handling of user and other api's",
   "main": "server.js",
+  "engines": {
+    "node": ">=16.0.0 <19.0.0"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
