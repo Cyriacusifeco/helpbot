@@ -44,7 +44,7 @@ app.get('/status', (req, res) => {
 })
 
 
-app.listen(port, '127.0.0.1', () =>
+app.listen(port, () =>
 {
     console.log('welcome to the helpbot and thw world of achievable goals'.rainbow)
 })
