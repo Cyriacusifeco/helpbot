@@ -1,9 +1,40 @@
-// import Chatbot from '../Chatbots/Chatbots';
-import '../Chatbots/Chatbots.css';
-// import Dashboard from '../../DashBoard';
-// import Sidebar from '../../../SideBar/Sidebar';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import './NewBot.css';
 
 const Step2 = () => {
+  const [uploadedImages, setUploadedImages] = useState([]);
+
+  // Function to handle file input change
+  const handleFileInputChange = (event) => {
+    const files = event.target.files;
+    const imageElements = [];
+    // eslint-disable-next-line no-unused-vars, react-hooks/rules-of-hooks, no-undef
+    const fileInputRef = useRef(null);
+
+    Array.from(files).forEach((file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const imgElement = (
+          <img
+            key={file.name}
+            src={reader.result}
+            alt={file.name}
+            className="img-thumbnail mr-2 mb-2"
+          />
+        );
+        imageElements.push(imgElement);
+        setUploadedImages([...imageElements]); // Updates state with new images
+      };
+    });
+  };
+
+  const handleClickUploader = () => {
+    // eslint-disable-next-line no-undef
+    fileInputRef.current.click();
+  };
+
   return (
     <>
       <div className="div-container h-full flex flex-col after:flex-1">
@@ -13,7 +44,7 @@ const Step2 = () => {
               Upload PDF files as data source 📄
             </h1>
             {/* Error handling, logic needed */}
-            <div className="flex w-full justify-between items-start">
+            {/* <div className="flex w-full justify-between items-start">
               <div className="flex">
                 <svg
                   className="w-4 h-4 shrink-0 fill-current opacity-80 mt-[3px] mr-3"
@@ -29,25 +60,65 @@ const Step2 = () => {
                   <path d="M7.95 6.536l4.242-4.243a1 1 0 111.415 1.414L9.364 7.95l4.243 4.242a1 1 0 11-1.415 1.415L7.95 9.364l-4.243 4.243a1 1 0 01-1.414-1.415L6.536 7.95 2.293 3.707a1 1 0 011.414-1.414L7.95 6.536z"></path>
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
-        {/* Form
+        {/* Form */}
         <form method="POST" id="pdfCreate">
           <div className="space-y-4 mb-8">
-            <div className="image-uploader" id="imageUploader">
-              <div className="emoji" style="font-size: 30px">
-                ⬆️
+            <div>
+              <div
+                className="image-uploader"
+                id="imageUploader"
+                onClick={handleClickUploader}
+              >
+                <div className="emoji">⬆️</div>
+                <p className="step2-text">Click to upload file..</p>
+                <span className="imp-span">
+                  you can upload up to 5 pdf files..
+                </span>
               </div>
-              <p style="font-weight: bold; margin-bottom: 1rem">
-                Click to upload or drag & drop
-              </p>
-              <span style="color: #2563eb">
-                you can upload more then one .pdf file.
-              </span>
+              <input
+                type="file"
+                name="pdffiles"
+                id="fileInput"
+                className="pdf-input"
+                accept="application/pdf"
+                required
+                multiple
+                onChange={handleFileInputChange}
+              />
+              <div className="uploaded-images" id="uploadedImages">
+                {uploadedImages}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <div className="font-medium text-slate-800 text-sm mb-1">
+                  Make sure that your files are scannable (text not images) 🫶
+                </div>
+                <div className="text-xs">
+                  You can upload multiple files at once and we will process them
+                  in the background. Atleast, I think so..😒
+                </div>
+              </div>
             </div>
           </div>
-        </form> */}
+
+          <div className="flex flx">
+            <Link
+              className="text-sm underline hover:no-underline"
+              to="/dashboard/create-bot/onboarding"
+            >
+              &lt;- Back
+            </Link>
+
+            <button type="submit" form="pdfCreate" className="btn btn-2 ">
+              Complete Training -&gt;
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

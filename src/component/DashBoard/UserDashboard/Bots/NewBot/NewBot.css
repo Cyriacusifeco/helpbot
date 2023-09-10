@@ -10,3 +10,72 @@
   color: var(--color-light-grey);
   background-color: var(--color-primary);
 }
+.flex a {
+  color: var(--color-orange);
+}
+.flex a:hover {
+  color: var(--color-primary);
+}
+.div-container {
+  color: var(--color-dark-grey);
+  font-size: 1.2rem;
+}
+/*****************************
+STEP 1
+*****************************/
+.newbot-p {
+  margin-bottom: 2rem;
+}
+/******************************
+STEP 2 Styles
+*******************************/
+
+.image-uploader {
+  border: 2px dashed #aaaaaa;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 9px;
+  background: var(--color-white);
+}
+
+.image-uploader img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-bottom: 1rem;
+}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  width: 69px;
+  margin-left: 4px;
+  display: inline;
+  margin-right: 1rem;
+}
+.emoji {
+  font-size: 25px;
+}
+.step2-text {
+  font-weight: bold;
+  color: var(color-dark-grey);
+  margin-bottom: 1rem;
+}
+.imp-span {
+  color: var(--color-orange);
+}
+.pdf-input {
+  display: none;
+}
+.uploaded-images {
+  margin-top: 1rem;
+}
+.flx {
+  margin-top: 3rem;
+  justify-content: space-between;
+}
+.text-sm {
+  align-self: start;
+}
