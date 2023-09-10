@@ -2,17 +2,18 @@
 """This is automated testing for this api"""
 import requests
 
-url = ''
+url = 'https://help-api.onrender.com/api/'
 
 #create user
 user_information = {
-    'usernmae': 'tester',
+    'username': 'tester',
     'password': 'testerpass',
     'email': 'test@test.tester'
 }
-user = requests.post(url, params=user_information)
+user = requests.post(url + 'users', json=user_information)
+print(user.status_code)
 print(f"user_created sucessfully: {user.json()}")
-user_id = user.get('_id')
+user_id = user.json().get('_id')
 
 #create_Business
 business_information = {
@@ -23,9 +24,9 @@ business_information = {
     'password': 'testerpass',
     'email': 'test@test.tester'
 }
-business = requests.post(url, params=business_information)
+business = requests.post(url + 'business/register', json=business_information)
 print(f"user_created sucessfully: {business.json()}")
-business_id = business.get('_id')
+business_id = business.json().get('_id')
 
 #create query
 query_information = {
@@ -38,8 +39,10 @@ query_information = {
     'password': 'testerpass',
     'email': 'test@test.tester'
 }
-query = requests.post(url, params=query_information)
+query = requests.post(url + '/queries', json=query_information)
 print(f"user_created sucessfully: {query.json()}")
+stats = requests.get(url + '/stats')
+print(f"stats: {stats.json()}")
 
 
 
