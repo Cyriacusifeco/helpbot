@@ -18,7 +18,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const getPdfContent = require('./config/pdfhandler.js').getPdfContent;
 const expressAsyncHandler = require('express-async-handler');
-const port = 3000
+const port = process.env.PORT || 5000
 console.log(`${port}`.cyan.underline)
 
 connectDB()
