@@ -8,6 +8,7 @@ import SideBar from './SideBar/Sidebar';
 // import Bot from './UserDashboard/Bots/Bot';
 import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PopOver from '../Shared/PopOver/PopOver';
 // import { useAuthContext } from '../../context';
 
 const Dashboard = () => {
@@ -53,6 +54,7 @@ const Dashboard = () => {
             </div>
             <h3>{title}</h3>
           </div>
+          <PopOver />
           <div className="bot-btn btn-1">
             <a href="/dashboard/create-bot/onboarding" className="bot-flex">
               <FontAwesomeIcon className="bot-icon" icon={faPlus} />

@@ -92,11 +92,9 @@ const Step1 = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex items-center justify-between">
-              <Link className="btn-1" to="/dashboard/create-bot/pdf-upload">
-                Let us do it! -&gt;
-              </Link>
-            </div>
+            <Link className="btn-1" to="/dashboard/create-bot/pdf-upload">
+              Let us do it! -&gt;
+            </Link>
           </form>
         </div>
       </div>
