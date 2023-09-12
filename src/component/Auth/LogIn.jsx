@@ -10,7 +10,7 @@ const LogIn = () => {
   const { state, dispatch } = useAuthContext();
 
   const handleLogin = () => {
-    const user = { id: 1, name: 'John' };
+    const user = { id: 1, name: '' };
     dispatch({ type: 'LOGIN', payload: { user } });
   };
   // const handleLogout = () => {
