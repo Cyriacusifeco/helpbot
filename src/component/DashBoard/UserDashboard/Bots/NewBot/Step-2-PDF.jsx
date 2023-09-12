@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './NewBot.css';
 
 const Step2 = () => {
+  // PDF upload logic
   const [uploadedImages, setUploadedImages] = useState([]);
+  const fileInputRef = useRef(null);
 
   // Function to handle file input change
   const handleFileInputChange = (event) => {
     const files = event.target.files;
     const imageElements = [];
-    // eslint-disable-next-line no-unused-vars, react-hooks/rules-of-hooks, no-undef
-    const fileInputRef = useRef(null);
+    // // eslint-disable-next-line no-unused-vars, react-hooks/rules-of-hooks, no-undef
+    // const fileInputRef = useRef(null);
 
     Array.from(files).forEach((file) => {
       const reader = new FileReader();
@@ -35,6 +37,9 @@ const Step2 = () => {
     fileInputRef.current.click();
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <div className="div-container h-full flex flex-col after:flex-1">
@@ -64,7 +69,7 @@ const Step2 = () => {
           </div>
         </div>
         {/* Form */}
-        <form method="POST" id="pdfCreate">
+        <form method="POST" id="pdfCreate" onSubmit={handleSubmit}>
           <div className="space-y-4 mb-8">
             <div>
               <div
@@ -87,6 +92,8 @@ const Step2 = () => {
                 required
                 multiple
                 onChange={handleFileInputChange}
+                ref={fileInputRef}
+                style={{ display: 'none' }}
               />
               <div className="uploaded-images" id="uploadedImages">
                 {uploadedImages}
@@ -96,7 +103,7 @@ const Step2 = () => {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="font-medium text-slate-800 text-sm mb-1">
-                  Make sure that your files are scannable (text not images) 🫶
+                  Make sure that your files are scannable (text not images)🆗
                 </div>
                 <div className="text-xs">
                   You can upload multiple files at once and we will process them
@@ -108,15 +115,20 @@ const Step2 = () => {
 
           <div className="flex flx">
             <Link
-              className="text-sm underline hover:no-underline"
+              className="bot-a text-sm underline "
               to="/dashboard/create-bot/onboarding"
             >
               &lt;- Back
             </Link>
-
-            <button type="submit" form="pdfCreate" className="btn btn-2 ">
-              Complete Training -&gt;
-            </button>
+            <Link to="/dashboard/create-bot/done">
+              <button
+                className="btn-2 btn-onboarding"
+                type="button"
+                // form="pdfCreate"
+              >
+                Complete Training -&gt;
+              </button>
+            </Link>
           </div>
         </form>
       </div>
