@@ -9,7 +9,7 @@ const Step1 = () => {
     <div className="min-h-screen items-center h-full flex flex-col after:flex-1">
       <div className="px-4 py-8 ">
         <div className="max-w-md mx-auto ">
-          <div className="div-container">
+          <div className="div-contain">
             <h1 className="text-3xl text-slate-800 mb-6">
               Lets set up your chatbot, it is free!✨
             </h1>

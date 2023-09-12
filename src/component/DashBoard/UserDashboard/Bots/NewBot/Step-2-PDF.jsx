@@ -45,7 +45,7 @@ const Step2 = () => {
       <div className="div-container h-full flex flex-col after:flex-1">
         <div className="px-4 py-8">
           <div className="mx-auto max-w-md">
-            <h1 className="text-3xl mb-6">
+            <h1 className="text-3xl mb-6 mid">
               Upload PDF files as data source 📄
             </h1>
             {/* Error handling, logic needed */}
@@ -102,7 +102,7 @@ const Step2 = () => {
 
             <div className="flex items-center justify-between mb-8">
               <div>
-                <div className="font-medium text-slate-800 text-sm mb-1">
+                <div className="text-sm mb-1 bold">
                   Make sure that your files are scannable (text not images)🆗
                 </div>
                 <div className="text-xs">

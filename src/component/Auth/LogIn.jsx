@@ -14,7 +14,6 @@ const LogIn = () => {
     dispatch({ type: 'LOGIN', payload: { user } });
   };
   // const handleLogout = () => {
-  //   // Simulate a logout action
   //   dispatch({ type: 'LOGOUT' });
   // };
   const {
@@ -34,10 +33,11 @@ const LogIn = () => {
         </div>
         <div className="col-md-6 log-in p-3">
           <form className="sign-in-form">
-            <h2>
-              Welcome back! {state.user ? state.user.name : 'Not logged in'}{' '}
+            <h2 className="title">
+              Welcome back!{' '}
+              {state.user ? state.user.name : 'User not logged in'}
             </h2>
-            {/* <h2 className="title">Welcome back! { state.user ? state.user.name } </h2> */}
+
             <p className="subtitle">Please enter your credentials</p>
 
             <div className="input-field">

@@ -17,11 +17,11 @@ a.bot-a {
 a.bot-a:hover {
   color: var(--color-primary);
 }
-.div-container {
+.div-contain {
   color: var(--color-dark-grey);
   font-size: 1.2rem;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 .mb-6 {
   font-weight: 600;
@@ -41,6 +41,7 @@ STEP 1
   font-weight: bolder;
   font-size: 1.5rem;
   margin-left: 3rem;
+  text-align: left;
 }
 .light {
   font-size: 1.1rem;
@@ -106,6 +107,9 @@ STEP 2 Styles
 .text-sm {
   align-self: start;
 }
+.mid {
+  text-align: center;
+}
 /*********************************
 Step 3
 **********************************/
@@ -127,7 +131,7 @@ Step 3
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+ 
 :root {
   --breakpoint-xs: 0;
   --breakpoint-sm: 2px;
@@ -8697,4 +8701,4 @@ button:hover .fill-primary {
   background: #dc2626;
   color: #fff;
   padding: 0.75rem;
-}
+} */
