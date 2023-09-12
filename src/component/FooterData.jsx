@@ -6,18 +6,15 @@ export const usefulLink = [
   { name: 'About', id: 2 },
   { name: 'Features', id: 3 },
   { name: 'Team', id: 4 },
-  // { name: 'Blog', id: 5 },
 ];
 export const ourServices = [
   { name: 'Chatbots', id: 6 },
   { name: 'Live Chat', id: 7 },
   { name: 'Support', id: 8 },
-  { name: 'Ticketing', id: 9 },
   { name: 'Analytics', id: 10 },
 ];
 export const otherLinks = [
   { name: 'FAQ', id: 11 },
-  // { name: 'Portfolio', id: 12 },
   { name: 'Privacy Policy', id: 13 },
   { name: 'Terms & Conditions', id: 14 },
   { name: 'Support', id: 15 },
