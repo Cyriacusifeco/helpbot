@@ -206,6 +206,11 @@
   top: 15px;
 }
 
+.bot-btn {
+  width: fit-content;
+  margin-left: auto;
+}
+/* 
 .adminBtn {
   margin-top: 1.8rem;
   margin-left: -1rem;
@@ -217,4 +222,4 @@
   padding: 3rem 2rem 8rem;
   margin-top: 2rem;
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
-}
+} */

@@ -2,10 +2,8 @@ import './Dashboard.css';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useState } from 'react';
-// import Profile from './Profile/Profile';
 import UserDashboard from './UserDashboard/UserDashboard';
 import SideBar from './SideBar/Sidebar';
-// import Bot from './UserDashboard/Bots/Bot';
 import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopOver from '../Shared/PopOver/PopOver';
@@ -55,13 +53,14 @@ const Dashboard = () => {
             <h3>{title}</h3>
           </div>
           <PopOver />
-          <div className="bot-btn btn-1">
-            <a href="/dashboard/create-bot/onboarding" className="bot-flex">
-              <FontAwesomeIcon className="bot-icon" icon={faPlus} />
-              Create Bot
-            </a>
-          </div>
         </div>
+        <div className="bot-btn btn-1">
+          <Link to="/dashboard/create-bot/onboarding" className="bot-flex">
+            <FontAwesomeIcon className="bot-icon" icon={faPlus} />
+            Create Bot
+          </Link>
+        </div>
+
         {/* <button onClick={toggleDisplay}>Toggle Display</button> */}
         <UserDashboard />
       </div>
