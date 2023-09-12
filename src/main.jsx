@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './component/App/App';
 import './index.css';
 import { AuthProvider } from './context/app-context';
 
 // eslint-disable-next-line react/no-deprecated
-ReactDOM.render(
+const root = document.getElementById('root');
+const rootElement = createRoot(root);
+rootElement.render(
   <React.StrictMode>
     <AuthProvider>
       <App />
