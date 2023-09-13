@@ -67,7 +67,7 @@ To be updated later.
 
 - [ ] **Chat Bots**
 - [ ] **Chat Widgets**
-- [ ] **Widhet Integration **
+- [ ] **Widget Integration**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
