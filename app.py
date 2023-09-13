@@ -9,6 +9,7 @@ from langchain.chat_models import ChatOpenAI
 from flask import Flask, request, jsonify
 import pymongo
 from pymongo import MongoClient
+from bson import ObjectId
 from dotenv import load_dotenv
 import sys
 import os
@@ -34,8 +35,16 @@ def fetch_business_data(api_key):
         client = pymongo.MongoClient("mongodb://localhost:27017/")
         db = client["users"]  # Replace with actual database name
 
+        # Convert the provided API key to an ObjectId
+        business_id = ObjectId(api_key)
+
+        # Fetch business data based on the ObjectId
+        business_data = db["businesses"].find_one({"_id": business_id})
+
         # Fetch business data based on apiKey
-        business_data = db["businesses"].find_one({"api_key": api_key})
+        # business_data = db["businesses"].find_one({"_id": api_key})
+
+        # print(api_key)
 
         # Close the database connection
         client.close()
@@ -43,7 +52,7 @@ def fetch_business_data(api_key):
         if business_data is None:
             raise ValueError("No business data found for the provided API key")
 
-        return business_data['data']
+        return business_data['knowledge_content']
 
     except Exception as e:
         # Handle any exceptions that occur during database access
