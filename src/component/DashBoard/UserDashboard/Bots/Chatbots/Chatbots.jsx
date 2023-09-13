@@ -5,18 +5,20 @@ import ActionProvider from "./chatbot/ActionProvider";
 import 'react-chatbot-kit/build/main.css';
 //import '../Bot.css';
 
-const Chatbots = () =>  {
+const Chatbots = () => {
   return (
     <>
-    <div >
-       <Chatbot
+    <div> 
+      <div  style={{maxWidth: "500px"}}>
+      <Chatbot
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
+      </div>
     </div>
     </>
   );
-}
+};
 
 export default Chatbots;
