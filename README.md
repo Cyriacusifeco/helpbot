@@ -51,7 +51,7 @@ To run the project, execute the following command:
 
 ### Deployment
 
-You can deploy this project by:
+To be updated later.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
