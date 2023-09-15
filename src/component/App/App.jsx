@@ -8,6 +8,7 @@ import NotFound from '../NotFound';
 // import Profile from '../DashBoard/Profile/Profile';
 import Dashboard from '../DashBoard/DashBoard';
 import '../App/App.css';
+import Chatbots from '../DashBoard/Widgets/Chatbots';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/signup/account-info" element={<AcctInfo />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chatbots" element={<Chatbots />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
           <Route path="*" element={<NotFound />} />
