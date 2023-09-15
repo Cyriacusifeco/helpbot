@@ -126,7 +126,7 @@ const Step2 = () => {
                 type="button"
                 // form="pdfCreate"
               >
-                Complete Training -&gt;
+                Next -&gt;
               </button>
             </Link>
           </div>

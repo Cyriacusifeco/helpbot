@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import '../../../../assets/styles/additional-styles/utility-patters.css';
+@import '../../../../assets/styles/additional-styles/range-slider.css';
+@import '../../../../assets/styles/additional-styles/toggle-switch.css';
+@import '../../../../assets/styles/additional-styles/flatpickr.css';
+@import '../../../../assets/styles/additional-styles/theme.css';
+
+@import 'tailwindcss/utilities';
+
+/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
+[x-cloak=''] {
+  display: none;
+}
+
+@media screen and (max-width: theme('screens.lg')) {
+  [x-cloak='lg'] {
+    display: none;
+  }
+}
+
+.meg {
+  margin-top: 2rem;
+}
+.copy-code {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.link {
+  display: none;
+}
+.flexx {
+  display: flex;
+  justify-content: space-between;
+}
+.chatlink,
+.chatlink input {
+  cursor: pointer !important;
+}
+.text-sm {
+  display: none;
+}
+.img-container {
+  max-width: 520px;
+}
+.copy-code textarea {
+  height: 250px;
+}

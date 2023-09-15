@@ -15,7 +15,10 @@ const Step3 = () => {
           <h2 className="text-3xl space text-slate-800 font-bold mb-8">
             That is it! Your bot is readyyy🙌
           </h2>
-          <Link className="btn-1 space btn-onboarding" to="/dashboard/chatbot">
+          <Link
+            className="btn-1 space btn-onboarding"
+            to="/dashboard/chatbot/settings-theme"
+          >
             Open your bot🤍 -&gt;
           </Link>
         </div>
