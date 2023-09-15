@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import { Button, Overlay } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
@@ -78,6 +79,19 @@ const PopOver = () => {
       </Overlay>
     </div>
   );
+=======
+// import { useState } from 'react'
+// import { Button, Overlay } from 'react-bootstrap';
+// import Popover from 'react-bootstrap/Popover';
+import './PopOver.css';
+// import { useRef } from 'react';
+// import toast from 'react-hot-toast';
+// import { handleSignOut } from '../../Login/LoginManager';
+// import { SET_USER, useAppContext } from '../../../context';
+
+const PopOver = () => {
+  return <div></div>;
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
 };
 
 export default PopOver;

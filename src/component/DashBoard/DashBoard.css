@@ -206,11 +206,14 @@
   top: 15px;
 }
 
+<<<<<<< HEAD
 .bot-btn {
   width: fit-content;
   margin-left: auto;
 }
 /* 
+=======
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
 .adminBtn {
   margin-top: 1.8rem;
   margin-left: -1rem;
@@ -222,4 +225,8 @@
   padding: 3rem 2rem 8rem;
   margin-top: 2rem;
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216

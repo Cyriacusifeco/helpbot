@@ -2,11 +2,20 @@ import './Dashboard.css';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useState } from 'react';
+<<<<<<< HEAD
 import UserDashboard from './UserDashboard/UserDashboard';
 import SideBar from './SideBar/Sidebar';
 import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopOver from '../Shared/PopOver/PopOver';
+=======
+// import Profile from './Profile/Profile';
+import UserDashboard from './UserDashboard/UserDashboard';
+import SideBar from './SideBar/Sidebar';
+// import Bot from './UserDashboard/Bots/Bot';
+import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
 // import { useAuthContext } from '../../context';
 
 const Dashboard = () => {
@@ -52,6 +61,7 @@ const Dashboard = () => {
             </div>
             <h3>{title}</h3>
           </div>
+<<<<<<< HEAD
           <PopOver />
         </div>
         <div className="bot-btn btn-1">
@@ -61,6 +71,18 @@ const Dashboard = () => {
           </Link>
         </div>
 
+=======
+          <div className="bot-btn btn-1">
+            <a
+              href="/dashboard/onboarding/step-1-orientation"
+              className="bot-flex"
+            >
+              <FontAwesomeIcon className="bot-icon" icon={faPlus} />
+              Create Bot
+            </a>
+          </div>
+        </div>
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
         {/* <button onClick={toggleDisplay}>Toggle Display</button> */}
         <UserDashboard />
       </div>

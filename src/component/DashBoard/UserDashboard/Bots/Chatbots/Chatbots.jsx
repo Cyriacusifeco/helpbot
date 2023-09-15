@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Col } from 'react-bootstrap';
 import './Chatbots.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -71,8 +72,33 @@ const Bot = () => {
           </div>
         </div>
       </div>
+=======
+import Chatbot from "react-chatbot-kit";
+import config from "./configs/chatbotConfig";
+import MessageParser from "./chatbot/MessageParser";
+import ActionProvider from "./chatbot/ActionProvider";
+import 'react-chatbot-kit/build/main.css';
+//import '../Bot.css';
+
+const Chatbots = () => {
+  return (
+    <>
+    <div> 
+      <div  style={{maxWidth: "500px"}}>
+      <Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProvider}
+      />
+      </div>
+    </div>
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
     </>
   );
 };
 
+<<<<<<< HEAD
 export default Bot;
+=======
+export default Chatbots;
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216

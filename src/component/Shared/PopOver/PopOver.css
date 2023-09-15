@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @import url(../../../index.css);
 
+=======
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
 .popImg {
   height: 45px;
   border-radius: 50%;
@@ -21,10 +24,14 @@
   margin: 0.1rem 0 0.5rem;
   font-weight: 600;
   font-size: 0.9rem;
+<<<<<<< HEAD
   color: var(--color-dark-grey);
 }
 .centerr {
   padding-left: 1rem;
   margin: auto;
   cursor: pointer;
+=======
+  color: rgba(0, 0, 0, 0.7);
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
 }

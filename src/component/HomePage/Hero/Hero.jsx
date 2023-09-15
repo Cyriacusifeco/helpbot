@@ -15,9 +15,15 @@ const Hero = () => {
     <div className="hero-container h-50">
       <div className="left">
         <div className="col-sm-6 hero-article pt-4">
+<<<<<<< HEAD
           <h1 className="heading-1 p-2 text-wrap">
             Enhance Your Customer Service with a Personalized{' '}
             <span className="helpbot">ChatBot!</span>
+=======
+          <h1 className="heading-1 p-2  text-wrap">
+            Enhance Your Customer Service with a Personalized{' '}
+            <span className="helpbot">HelpBot!</span>
+>>>>>>> 94e56a626a050d6b90cf00c79ebc6454f7138216
           </h1>
           <h4 className="p-2 pb-3 lh-sm text-wrap">
             Answer most customer questions instantly with conversational AI and
