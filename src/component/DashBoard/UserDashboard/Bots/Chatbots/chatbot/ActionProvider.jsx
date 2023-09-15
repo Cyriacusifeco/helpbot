@@ -23,7 +23,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     // Format messages for chatGPT API
     // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
     // So we need to reformat
-
+console.log(chatMessages);
     let apiMessages = { role: "assistant", content: chatMessages}
 
     const systemMessage = { role: "system", content: "Speak like a pirate"}
@@ -45,7 +45,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + API_KEY,
+        "Authorization": "Bearer " + "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",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
