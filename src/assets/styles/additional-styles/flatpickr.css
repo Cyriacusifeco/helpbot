@@ -1,4 +1,4 @@
-/* Customise flatpickr */
+/* Customise flatpickr 
 * {
   --calendarPadding: 24px;
   --daySize: 36px;
@@ -229,3 +229,4 @@ span.flatpickr-weekday {
 .flatpickr-calendar.arrowBottom::after {
   display: none;
 }
+*/

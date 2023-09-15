@@ -4,11 +4,11 @@
 @import 'tailwindcss/components';
 
 /* Additional styles */
-@import '../../../../assets/styles/additional-styles/utility-patters.css';
-@import '../../../../assets/styles/additional-styles/range-slider.css';
-@import '../../../../assets/styles/additional-styles/toggle-switch.css';
-@import '../../../../assets/styles/additional-styles/flatpickr.css';
-@import '../../../../assets/styles/additional-styles/theme.css';
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/flatpickr.css';
+@import 'additional-styles/theme.css';
 
 @import 'tailwindcss/utilities';
 

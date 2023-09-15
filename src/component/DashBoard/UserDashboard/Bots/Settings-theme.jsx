@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import SidebarBot from './SidebarBot';
 import { Image } from 'react-bootstrap';
-import './style.css';
+import '../../../../assets/styles/style.css';
 import widgetGif from './../../../../assets/images/chat-widget-info.gif';
 
 const Theme = () => {
