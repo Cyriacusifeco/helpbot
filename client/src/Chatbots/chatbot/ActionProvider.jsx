@@ -1,6 +1,5 @@
 // in ActionProvider.jsx
 import React from 'react';
-// export default ActionProvider;
 // const API_KEY = "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";
 
 // eslint-disable-next-line react/prop-types
@@ -16,7 +15,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 const processMessageToChatbotAPI = async (message, apiKey) => {
   // Define the API endpoint
-  const apiUrl = 'http://localhost:5000/api/chatbot';
+  const apiUrl = '';
 
   // Create a request body with the input_text and apiKey
   const requestBody = JSON.stringify({
@@ -40,7 +39,7 @@ const processMessageToChatbotAPI = async (message, apiKey) => {
       const data = await response.json();
 
       // Extract the response message from the API
-      const responseMessage = data.message;
+      const responseMessage = data.response;
 
       // Create a chatbot message with the response
       const botMessage = createChatBotMessage(responseMessage);
