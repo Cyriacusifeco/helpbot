@@ -14,57 +14,31 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
 
-  //Test Running with ChatGPT
-
-
-
-
- const processMessageToChatGPT = async (chatMessages)  => { // messages is an array of messages
+  const processMessageToChatGPT = async (message)  => { // messages is an array of messages
     // Format messages for chatGPT API
     // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
     // So we need to reformat
-console.log(chatMessages);
-    let apiMessages = { role: "assistant", content: chatMessages}
-
-    const systemMessage = { role: "system", content: "Speak like a pirate"}
-
-
-
     // Get the request body set up with the model we plan to use
     // and the messages which we formatted above. We add a system message in the front to'
-    // determine how we want chatGPT to act. 
-    const apiRequestBody = {
-      "model": "gpt-3.5-turbo",
-      "messages": [
-        systemMessage,  // The system message DEFINES the logic of our chatGPT
-        apiMessages // The messages from our chat with ChatGPT
-      ]
-    }
+    // determine how we want chatGPT to act
 
-    await fetch("https://api.openai.com/v1/chat/completions", 
-    {
-      method: "POST",
-      headers: {
-	      // eslint-disable-next-line
-        "Authorization": "Bearer " + "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",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(apiRequestBody)
-    }).then((data) => {
-      return data.json();
-    }).then((data) => {
-      console.log(data);
-      const botMessage = createChatBotMessage(data.choices[0].message.content);
-      
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, botMessage],
-      }));
-
-    });
+const app_id = "af872ea5" ;
+const app_key = "1f290cdba824d10ee1c3e4d7a062ff01" ;
+let msg = message ;
+let url = 'https://api.edamam.com/search?q=' + msg + '&app_id=' + app_id + '&app_key=' + app_key;
+  const response =  await fetch(url);
+   const data = await response.json();
+  console.log(data.hits[0].recipe.cuisineType[0]);
+//console.log(data.hits);
+const botMessage = createChatBotMessage(data.hits[0].recipe.cuisineType[0]);
+setState((prev) => ({
+    ...prev,
+    messages: [...prev.messages, botMessage],
+  }));
+};
 
    
-  };
+    
   
 
   // Put the handleHello function in the actions object to pass to the MessageParser
