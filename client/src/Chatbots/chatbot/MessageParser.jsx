@@ -1,18 +1,19 @@
-// in MessageParser.jsx
-// in MessageParser.js
 import React from 'react';
 
-// eslint-disable-next-line react/prop-types
 const MessageParser = ({ children, actions }) => {
-  const parse = (message) => {
+  const parse = async (message) => {
     if (message.includes('hello')) {
-      // eslint-disable-next-line react/prop-types
       actions.handleHello();
+    } else {
+      // Assuming your processMessageToChatbotAPI function is asynchronous
+      try {
+        // Pass the message and apiKey as parameters
+        const apiKey = "your-api-key"; // Replace with your actual API key
+        await actions.processMessageToChatbotAPI(message, apiKey);
+      } catch (error) {
+        console.error(error); // Log any errors that occur during the API call
+      }
     }
-
-
-    // eslint-disable-next-line react/prop-types
-    actions.processMessageToChatGPT(message);
   };
 
   return (

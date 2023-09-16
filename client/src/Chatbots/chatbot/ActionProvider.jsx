@@ -1,5 +1,6 @@
 // in ActionProvider.jsx
 import React from 'react';
+// export default ActionProvider;
 // const API_KEY = "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";
 
 // eslint-disable-next-line react/prop-types
@@ -13,47 +14,65 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
+const processMessageToChatbotAPI = async (message, apiKey) => {
+  // Define the API endpoint
+  const apiUrl = 'https://your-chatbot-api-url.com';
 
-  const processMessageToChatGPT = async (message)  => { // messages is an array of messages
-    // Format messages for chatGPT API
-    // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
-    // So we need to reformat
-    // Get the request body set up with the model we plan to use
-    // and the messages which we formatted above. We add a system message in the front to'
-    // determine how we want chatGPT to act
+  // Create a request body with the input_text and apiKey
+  const requestBody = JSON.stringify({
+    input_text: message,
+    apiKey: apiKey,
+  });
 
-const app_id = "af872ea5" ;
-const app_key = "1f290cdba824d10ee1c3e4d7a062ff01" ;
-let msg = message ;
-let url = 'https://api.edamam.com/search?q=' + msg + '&app_id=' + app_id + '&app_key=' + app_key;
-  const response =  await fetch(url);
-   const data = await response.json();
-  console.log(data.hits[0].recipe.cuisineType[0]);
-//console.log(data.hits);
-const botMessage = createChatBotMessage(data.hits[0].recipe.cuisineType[0]);
-setState((prev) => ({
-    ...prev,
-    messages: [...prev.messages, botMessage],
-  }));
+  try {
+    // Make a POST request to your API
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: requestBody,
+    });
+
+    // Check if the response is successful (status code 200)
+    if (response.status === 200) {
+      // Parse the JSON response
+      const data = await response.json();
+
+      // Extract the response message from the API
+      const responseMessage = data.message;
+
+      // Create a chatbot message with the response
+      const botMessage = createChatBotMessage(responseMessage);
+
+      // Update the chatbot's state with the new message
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } else {
+      // Handle error responses here if needed
+      console.error('API request failed with status:', response.status);
+    }
+  } catch (error) {
+    console.error('Error while making API request:', error);
+  }
 };
 
-   
-    
-  
+// Pass processMessageToChatbotAPI as an action
+return (
+  <div>
+    {React.Children.map(children, (child) => {
+      return React.cloneElement(child, {
+        actions: {
+          handleHello,
+          processMessageToChatbotAPI, // Add the new function here
+        },
+      });
+    })}
+  </div>
+);
 
-  // Put the handleHello function in the actions object to pass to the MessageParser
-  return (
-    <div>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          actions: {
-            handleHello,
-            processMessageToChatGPT,
-          },
-        });
-      })}
-    </div>
-  );
 };
 
 export default ActionProvider;
