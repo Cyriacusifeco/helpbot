@@ -8,7 +8,7 @@ const MessageParser = ({ children, actions }) => {
       // Assuming your processMessageToChatbotAPI function is asynchronous
       try {
         // Pass the message and apiKey as parameters
-        const apiKey = "your-api-key"; // Replace with your actual API key
+        const apiKey = "64ff43611b20794321db434e"; // Replace with your actual API key
         await actions.processMessageToChatbotAPI(message, apiKey);
       } catch (error) {
         console.error(error); // Log any errors that occur during the API call

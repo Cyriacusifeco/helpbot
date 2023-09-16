@@ -16,7 +16,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 const processMessageToChatbotAPI = async (message, apiKey) => {
   // Define the API endpoint
-  const apiUrl = 'https://your-chatbot-api-url.com';
+  const apiUrl = 'http://localhost:5000/api/chatbot';
 
   // Create a request body with the input_text and apiKey
   const requestBody = JSON.stringify({
