@@ -2,11 +2,21 @@
 import { black, transparent, gray } from 'tailwindcss/colors';
 import TailwindScrollBar from 'tailwind-scrollbar';
 import TailwindTypography from '@tailwindcss/typography';
+
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './src/index.css'],
   prefix: 'ch-',
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              color: 'red',
+            },
+          },
+        },
+      },
       keyframes: {
         overlayShow: {
           from: { opacity: 0, blur: '10px' },
@@ -22,9 +32,6 @@ export default {
         contentShow:
           'contentShow 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
       },
-    },
-    fontFamily: {
-      manrope: ['Manrope', 'sans-serif'],
     },
     colors: {
       primary: 'var(--color-primary)',

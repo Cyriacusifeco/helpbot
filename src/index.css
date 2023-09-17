@@ -1,5 +1,6 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:700&display=swap);
+@import url(./component//DashBoard//UserDashboard/Bots/NewBot/NewBot.css);
 * {
   margin: 0;
   padding: 0;
