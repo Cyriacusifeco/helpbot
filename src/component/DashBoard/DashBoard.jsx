@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import UserDashboard from './UserDashboard/UserDashboard';
 import SideBar from './SideBar/Sidebar';
-import { faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopOver from '../Shared/PopOver/PopOver';
 // import { useAuthContext } from '../../context';
@@ -54,13 +54,12 @@ const Dashboard = () => {
           </div>
           <PopOver />
         </div>
-        <div className="bot-btn btn-1">
+        {/* <div className="bot-btn btn-1">
           <Link to="/dashboard/create-bot/onboarding" className="bot-flex">
             <FontAwesomeIcon className="bot-icon" icon={faPlus} />
             Create Bot
           </Link>
-        </div>
-
+        </div> */}
         {/* <button onClick={toggleDisplay}>Toggle Display</button> */}
         <UserDashboard />
       </div>

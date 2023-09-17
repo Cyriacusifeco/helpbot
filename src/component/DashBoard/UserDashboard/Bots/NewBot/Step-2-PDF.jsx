@@ -45,7 +45,7 @@ const Step2 = () => {
       <div className="div-container h-full flex flex-col after:flex-1">
         <div className="px-4 py-8">
           <div className="mx-auto max-w-md">
-            <h1 className="text-3xl mb-6 mid">
+            <h1 className="text-3xl text-slate-800 font-bold mb-6">
               Upload PDF files as data source 📄
             </h1>
             {/* Error handling, logic needed */}
@@ -102,10 +102,10 @@ const Step2 = () => {
 
             <div className="flex items-center justify-between mb-8">
               <div>
-                <div className="text-sm mb-1 bold">
+                <div className="text-s mb-1 bold">
                   Make sure that your files are scannable (text not images)🆗
                 </div>
-                <div className="text-xs">
+                <div className="text-s">
                   You can upload multiple files at once and we will process them
                   in the background. Atleast, I think so..😒
                 </div>
@@ -113,19 +113,15 @@ const Step2 = () => {
             </div>
           </div>
 
-          <div className="flex flx">
+          <div className="flex items-center justify-between">
             <Link
-              className="bot-a text-sm underline "
+              className="bot-a text-s  underline hover:no-underline "
               to="/dashboard/create-bot/onboarding"
             >
               &lt;- Back
             </Link>
             <Link to="/dashboard/create-bot/done">
-              <button
-                className="btn-2 btn-onboarding"
-                type="button"
-                // form="pdfCreate"
-              >
+              <button className="btn-2  ml-auto" type="button" form="pdfCreate">
                 Next -&gt;
               </button>
             </Link>

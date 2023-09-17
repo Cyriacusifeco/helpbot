@@ -48,14 +48,14 @@ const PopOver = () => {
 
   return (
     <div>
-      <div className="flexx" onClick={handleClick}>
+      <div className="flex items-center" onClick={handleClick}>
         <img src={img} alt="" className="popImg" />
-        <h5 className="BusinessName centerr">
-          {/*`${businessName}`*/}shopNana{' '}
-          <span>
-            <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
-          </span>
-        </h5>
+        <span>
+          <FontAwesomeIcon
+            className="centerr"
+            icon={faSortDown}
+          ></FontAwesomeIcon>
+        </span>
       </div>
 
       <Overlay
@@ -68,8 +68,8 @@ const PopOver = () => {
         <Popover id="popover-contained">
           <div className="text-center">
             <img src={img} alt="" className="popImg" />
-            <p className="userName">{/*`${username}`*/} Charly</p>
-            <p className="userEmail">{/*email*/} ibot@gmail.com</p>
+            <p className="userName">{/*`${username}`*/} ShopNana</p>
+            <p className="userEmail">{/*email*/} nana@gmail.com</p>
             <Button variant="outline-danger" size="sm">
               Log out
             </Button>
