@@ -23,8 +23,28 @@ body {
   font-size: 2rem;
 }
 /*******************************
-AideBar
+SideBar
 *******************************/
 .mr-3 a:hover {
-  background-color: var(--color-red);
+  background-color: var(--color-light-grey);
+}
+/********************************
+Setting Data
+*********************************/
+.pending {
+  background-color: #ffe9a8;
+  color: #f59e0b;
+}
+
+.in-progress {
+  background-color: #e0f2fe;
+  color: #10b981;
+}
+
+.default {
+  background-color: #ecfdf5;
+  color: var(--color-primary);
+}
+.collapsed {
+  display: none;
 }

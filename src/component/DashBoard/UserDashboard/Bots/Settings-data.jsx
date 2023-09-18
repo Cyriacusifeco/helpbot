@@ -96,6 +96,19 @@ const SettingsData = () => {
             </div>
           </div>
           {/* Main Panel */}
+          <div className="grow">
+            <div className="p-6 space-y-6">
+              <section>
+                <h3 className="text-xl leading-snug text-slate-800 font-bold mb-1">
+                  Data sources
+                </h3>
+                <div className="text-sm">
+                  Currently we onlysupport PDFs and Text. Soon, we will support
+                  web based sources
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </div>
     </div>
