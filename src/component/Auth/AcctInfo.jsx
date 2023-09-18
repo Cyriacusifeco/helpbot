@@ -116,7 +116,7 @@ const AcctInfo = () => {
                   </option>
                 </select>
               </div>
-              <Link to="/dashboard">
+              <Link to="/dashboard/create-bot/onboarding">
                 <input className="iBtn" type="submit" value="Sign Up" />
               </Link>
               <p className="social-text">
