@@ -91,7 +91,7 @@ const Signup = () => {
               />
             </div>
             <Link to="/signup/account-info">
-              <input className="iBtn" type="submit" value="Continue" />
+              <input className="btn-3" type="submit" value="Continue" />
             </Link>
             <p className="social-text">
               Already have an account? <Link to="/LogIn">Log In</Link>

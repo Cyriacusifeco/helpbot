@@ -62,10 +62,10 @@ const LogIn = () => {
                 {...register('password', { required: true })}
               />
             </div>
-            <Link to="/dashboard">
+            <Link to="/dashboard/create-bot/onboarding">
               <input
                 onClick={handleLogin}
-                className="iBtn"
+                className="btn btn-3 text-white"
                 type="submit"
                 value="Login"
               />

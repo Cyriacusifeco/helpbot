@@ -1,6 +1,5 @@
-@import url(../../../../index.css);
-@import url(../../../../assets/styles/style.css);
-/* @import url(./NewBot/NewBot.css); */
+@import url('../../../../index.css');
+@import url('../../../../assets/styles/style.css');
 
 /********************************
 Settings-theme styles
@@ -18,9 +17,6 @@ General Setting
 .or {
   margin-left: 1rem;
   margin-right: 1rem;
-}
-body {
-  font-size: 2rem;
 }
 /*******************************
 SideBar
