@@ -1,0 +1,30 @@
+@import url(../../../../index.css);
+@import url(../../../../assets/styles/style.css);
+/* @import url(./NewBot/NewBot.css); */
+
+/********************************
+Settings-theme styles
+*********************************/
+.meg {
+  margin-top: 2rem;
+}
+
+.fill-color {
+  fill: var(--color-primary);
+}
+/*******************************
+General Setting 
+*******************************/
+.or {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+body {
+  font-size: 2rem;
+}
+/*******************************
+AideBar
+*******************************/
+.mr-3 a:hover {
+  background-color: var(--color-red);
+}

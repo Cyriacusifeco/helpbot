@@ -42,10 +42,10 @@ const Bot = () => {
                 <Link
                   className="inline-flex text-slate-800 hover:text-slate-900 mb-1"
                   to="/chatbot.settings-theme"
-                  id="bot.id %"
+                  id="bot.id"
                 >
                   <h2 className="text-xl leading-snug font-semibold">
-                    HelpBot
+                    Bot Name
                   </h2>
                 </Link>
               </div>

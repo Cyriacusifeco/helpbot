@@ -17,53 +17,38 @@ a.bot-a {
 a.bot-a:hover {
   color: var(--color-primary);
 }
-.div-contain {
-  color: var(--color-dark-grey);
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 3rem;
-}
 .mb-6 {
   font-weight: 600;
 }
 /*****************************
 STEP 1 - onboarding
 *****************************/
+.div-contain {
+  color: var(--color-dark-grey);
+}
+/*.div-cont {
+  margin: auto;
+}
 .newbot-p {
   margin-bottom: 2rem;
   font-size: 1.2rem;
-}
+}*/
 .custom-icon {
   color: var(--color-orange);
-  margin: auto 0;
 }
-.bold {
-  font-weight: bolder;
-  font-size: 1.5rem;
-  margin-left: 3rem;
-  text-align: left;
-}
-.light {
-  font-size: 1.1rem;
-  margin-left: 4rem;
-}
-.flexx {
-  display: flex;
-}
-ul.-my-2 {
-  margin-bottom: 5rem;
+.py-2 h3 {
+  font-weight: bold;
 }
 
 /******************************
 STEP 2 - PDF upload
 *******************************/
-
 .image-uploader {
-  border: 2px dashed #aaaaaa;
+  border: 2px dashed var(--color-dark-grey);
   padding: 2rem;
   text-align: center;
   cursor: pointer;
-  border-radius: 9px;
+  border-radius: 10px;
   background: var(--color-white);
 }
 
@@ -76,7 +61,7 @@ STEP 2 - PDF upload
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--color-light-grey);
   border-radius: 0.25rem;
   width: 69px;
   margin-left: 4px;
@@ -94,22 +79,12 @@ STEP 2 - PDF upload
 .imp-span {
   color: var(--color-orange);
 }
-.pdf-input {
-  display: none;
+.bold {
+  font-weight: bold;
 }
-.uploaded-images {
-  margin-top: 1rem;
-}
-.flx {
-  margin-top: 3rem;
-  justify-content: space-between;
-}
-.text-sm {
-  align-self: start;
-}
-.mid {
+/* .mid {
   text-align: center;
-}
+} */
 
 /********************************
 Step 3 - Integration
@@ -172,6 +147,6 @@ Step 4 - Done
 .space {
   margin: 3rem 0;
 }
-.btn-onboarding {
+/* .btn-onboarding {
   margin-top: 3rem;
-}
+} */

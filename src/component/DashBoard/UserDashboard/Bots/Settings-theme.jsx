@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-// import SidebarBot from './SidebarBot';
 import { Image } from 'react-bootstrap';
 import './Settings.css';
 import widgetGif from './../../../../assets/images/chat-widget-info.gif';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-// import { faUser } from '@fortawesome/free-solid-svg-icons';
-// import { faFileClipboard } from '@fortawesome/free-regular-svg-icons';
 
 // eslint-disable-next-line react/prop-types
 const Theme = ({ botToken }) => {
@@ -47,7 +42,12 @@ const Theme = ({ botToken }) => {
             <Link className="text-slate-500" to="/dashboard/chatbot">
               Home
             </Link>
-            <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
+            <svg
+              className="h-4 w-4 fill-current text-slate-400 mx-3"
+              viewBox="0 0 16 16"
+            >
+              <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z"></path>
+            </svg>
           </li>
           <li className="flex items-center">
             <a className="text-slate-500">Try & Share</a>
@@ -98,7 +98,7 @@ const Theme = ({ botToken }) => {
                 <li className="mr-0.5 md:mr-0 md:mb-0.5">
                   <Link
                     className="flexs flex items-center px-2.5 py-2 rounded whitespace-nowrap"
-                    to="/chat"
+                    to="/dashboard/chatbot/settings-data"
                   >
                     {/* <FontAwesomeIcon
                       className="custom-icon"
@@ -136,19 +136,20 @@ const Theme = ({ botToken }) => {
                   </div>
                   {/* <!-- Chat Bubble Embed --> */}
                   <div
-                    className="px-5 py-4 rounded-sm border border-slate-200 mt-5"
-                    /*x-data="{ open: false }"*/
+                    className={`px-5 py-4 rounded-sm border border-slate-200 mt-5 ${
+                      isOpen ? 'open' : ''
+                    }`}
                   >
                     <button
                       className="flex items-center justify-between w-full group mb-1"
-                      onClick={() => setIsOpen(!open)}
-                      aria-expanded={open}
+                      onClick={toggleOpen}
+                      aria-expanded={isOpen}
                     >
                       <div className="text-sm text-slate-800 font-medium">
                         🌎 Embed widget on your web appl as a chat bubble..
                       </div>
                       <svg
-                        className={`w-8 h-8 shrink-0 fill-current text-slate-400 group-hover:text-slate-500 ml-3" ${
+                        className={`w-8 h-8 shrink-0 fill-current text-slate-400 group-hover:text-slate-500 ml-3 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         viewBox="0 0 32 32"
@@ -157,25 +158,26 @@ const Theme = ({ botToken }) => {
                         <path d="M16 20l-5.4-5.4 1.4-1.4 4 4 4-4 1.4 1.4z"></path>
                       </svg>
                     </button>
-                    <div className="text-sm" /*x-show="open"*/>
-                      <div className="img-container">
-                        <Image src={widgetGif} alt=""></Image>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-between embed">
-                          <strong>
-                            1. Copy the following code into your website head
-                            script
-                          </strong>
+                    {isOpen && (
+                      <div className="text-sm" /*x-show="open"*/>
+                        <div className="img-container">
+                          <Image src={widgetGif} alt=""></Image>
                         </div>
-                        <textarea
-                          id="tooltip"
-                          className="form-input w-full"
-                          type="text"
-                          disabled
-                        >
-                          {/* Embeded code */}
-                          {`<script src="https://helpbot.com/chat.js"></script>
+                        <div>
+                          <div className="flex items-center justify-between embed">
+                            <strong>
+                              1. Copy the following code into your website head
+                              script
+                            </strong>
+                          </div>
+                          <textarea
+                            id="tooltip"
+                            className="form-input w-full"
+                            type="text"
+                            disabled
+                          >
+                            {/* Embeded code */}
+                            {`<script src="https://helpbot.com/chat.js"></script>
                           <script>
                             document.addEventListener('DOMContentLoaded', function () {
                               var chatConfig = {
@@ -184,9 +186,10 @@ const Theme = ({ botToken }) => {
                               initializeChatWidget(chatConfig);
                             });
                           </script>`}
-                        </textarea>
+                          </textarea>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   <div className="meg">
                     {/* <!-- Share Link --> */}
@@ -237,7 +240,7 @@ const Theme = ({ botToken }) => {
                         id="tooltip"
                         className="form-input w-full"
                         type="text"
-                        value="http://localhost:8000{% url 'token=bot.token' %}"
+                        value="http://localhost:8000/abcdesf%"
                         disabled
                       />
                     </Link>
