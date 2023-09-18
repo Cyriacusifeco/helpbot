@@ -110,26 +110,28 @@ const SettingsData = () => {
                   <div className="rounded-sm border border-slate-200">
                     <div className="overflow-x-auto">
                       <table className="table-auto w-full divide-y divide-slate-200">
-                        <tbody
-                          className="text-sm"
-                          x-data="{ open: false }"
-                        >
+                        <tbody className="text-sm" /*x-data="{ open: false }"*/>
                           <tr>
                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                               <div className="flex items-center text-slate-800">
                                 <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-slate-100 rounded-full mr-2 sm:mr-3">
-                                  <Img className="rounded-full ml-1" src="{{ source.icon }}"
-                                    width="40" height="40" alt="User 01">
+                                  <img
+                                    className="rounded-full ml-1"
+                                    src="{{ source.icon }}"
+                                    width="40"
+                                    height="40"
+                                    alt="User 01"
+                                  />
                                 </div>
                                 <div className="font-medium text-slate-800">
-                                  <strong>website</strong>:
-                                  {{source.root_url}}
+                                  <strong>website</strong>:{/**/}
                                 </div>
                               </div>
                             </td>
                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                               <div className="text-left font-medium text-emerald-500">
-                                {{ source.crawled_pages.count }} pages scanned
+                                {/*{ source.crawled_pages.count }*/} pages
+                                scanned
                               </div>
                             </td>
                           </tr>
