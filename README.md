@@ -61,7 +61,7 @@ To be updated later.
 
 - GitHub: [@CharlyAnne](https://github.com/CharlyAnne)
 - Twitter: [@Imoisiliii](https://twitter.com/imoisiliii)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ezekiel-udiomuno)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/charlian-imoisili)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
