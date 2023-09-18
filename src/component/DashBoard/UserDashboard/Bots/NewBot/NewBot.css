@@ -1,4 +1,5 @@
 @import url('../../../../../index.css');
+
 .bots-container {
   display: flex;
   color: var(--color-dark-grey);
@@ -25,14 +26,10 @@ STEP 1 - onboarding
 *****************************/
 .div-contain {
   color: var(--color-dark-grey);
+  /* font-size: 1.2rem;
+  text-align: center;
+  margin-top: 3rem; */
 }
-/*.div-cont {
-  margin: auto;
-}
-.newbot-p {
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-}*/
 .custom-icon {
   color: var(--color-orange);
 }
@@ -129,9 +126,8 @@ Step 3 - Integration
   left: 50%;
   transform: translate(-50%, -50%);
   color: #606060;
-  /* Adjust the text color as desired */
   font-size: 24px;
-  /* Adjust the font size as desired */
+
   z-index: 2;
   text-align: center;
 }
@@ -147,6 +143,3 @@ Step 4 - Done
 .space {
   margin: 3rem 0;
 }
-/* .btn-onboarding {
-  margin-top: 3rem;
-} */

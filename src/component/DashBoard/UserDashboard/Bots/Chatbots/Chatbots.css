@@ -1,4 +1,6 @@
 @import url('../../../../../index.css');
+@import url('../../../../../assets/styles/style.css');
+
 .bots-container {
   display: flex;
 }

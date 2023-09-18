@@ -13,7 +13,10 @@ const Bot = () => {
           </div>
           <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
             {/* <!-- Create Bot button --> */}
-            <Link to="/dashboard/create-bot/onboarding" className="btn-1 btn">
+            <Link
+              to="/dashboard/create-bot/onboarding"
+              className="btn-1 btn text-white"
+            >
               <svg
                 className="w-4 h-4 fill-current opacity-50 shrink-0"
                 viewBox="0 0 16 16"

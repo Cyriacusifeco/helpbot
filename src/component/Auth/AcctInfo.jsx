@@ -48,7 +48,7 @@ const AcctInfo = () => {
               </a>
             </div>
             <img
-              src="../../assets/2.jpeg"
+              src="../../../src/assets/2.jpeg"
               alt="pic"
               className="img-fluid image"
             />
@@ -116,8 +116,12 @@ const AcctInfo = () => {
                   </option>
                 </select>
               </div>
-              <Link to="/dashboard">
-                <input className="iBtn" type="submit" value="Sign Up" />
+              <Link to="/dashboard/create-bot/onboarding">
+                <input
+                  className="btn-3 btn text-white"
+                  type="submit"
+                  value="Sign Up"
+                />
               </Link>
               <p className="social-text">
                 Already have an account? <Link to="/LogIn">Log In</Link>
