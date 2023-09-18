@@ -23,7 +23,6 @@ const Theme = ({ botToken }) => {
   // Then fetch data every 2 seconds
   // setInterval(fetchDataSourcesUpdates, 2000);
 
-  // share input
   const [isOpen, setIsOpen] = useState(false);
   // Function to toggle the isOpen state
   const toggleOpen = () => {
@@ -240,7 +239,7 @@ const Theme = ({ botToken }) => {
                         id="tooltip"
                         className="form-input w-full"
                         type="text"
-                        value="http://localhost:8000/abcdesf%"
+                        value="http://localhost:8000/bot.id"
                         disabled
                       />
                     </Link>

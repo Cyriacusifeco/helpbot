@@ -5,14 +5,14 @@ import LogIn from '../Auth/LogIn';
 import AcctInfo from '../Auth/AcctInfo';
 import Home from '../HomePage/Home';
 import NotFound from '../NotFound';
-// import Profile from '../DashBoard/Profile/Profile';
+import ChatWidget from '../Widget/ChatWidget';
 import Dashboard from '../DashBoard/DashBoard';
 import '../App/App.css';
 
 export default function App() {
   return (
-    <Router>
-      <div>
+    <div>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
@@ -24,7 +24,8 @@ export default function App() {
           {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+      <ChatWidget />
+    </div>
   );
 }

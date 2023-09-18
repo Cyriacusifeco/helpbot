@@ -1,15 +1,6 @@
 @import url(../../index.css);
 
-.chat-widget {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
-}
-
-.chat-widget.open {
+/* .chat-widget.open {
   transform: translateX(0);
 }
 
@@ -18,13 +9,16 @@
   border: 1px solid #ccc;
   padding: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .chat-icon {
-  background-color: var(--color-primary);
-  color: #fff;
   border: none;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
+  /* position: fixed; */
+  top: 30px;
+  right: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
 }

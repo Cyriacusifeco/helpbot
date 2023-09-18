@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import './Settings.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 // import { Image } from 'react-bootstrap';
 // import widgetGif from './../../../../assets/images/chat-widget-info.gif';
 
 const SettingsData = () => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // Function to toggle the isOpen state
-  // const toggleOpen = () => {
-  //   setIsOpen(!isOpen);
-  // };
+  const [isOpen, setIsOpen] = useState(false);
+
+  //Function to toggle the isOpen state
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className="bodyfont px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
@@ -103,8 +104,8 @@ const SettingsData = () => {
                   Data sources
                 </h3>
                 <div className="text-sm">
-                  Currently we onlysupport PDFs and Text. Soon, we will support
-                  web based sources
+                  Currently we only support PDFs files and texts. Soon, we will
+                  support web based sources🫱🏿‍🫲🏾
                 </div>
                 <div className="orr">
                   <div className="rounded-sm border border-slate-200">
@@ -120,18 +121,74 @@ const SettingsData = () => {
                                     src="{{ source.icon }}"
                                     width="40"
                                     height="40"
-                                    alt="User 01"
+                                    alt="User"
                                   />
                                 </div>
                                 <div className="font-medium text-slate-800">
-                                  <strong>website</strong>:{/**/}
+                                  <strong>pdf</strong>
+                                  {/*source_root*/}
                                 </div>
                               </div>
                             </td>
                             <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                               <div className="text-left font-medium text-emerald-500">
-                                {/*{ source.crawled_pages.count }*/} pages
-                                scanned
+                                {/*{ source.pdf_pages.count }*/} pages scanned
+                              </div>
+                            </td>
+                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                              {/*source.crawling_status.is_pending && 
+                              <div className="inline-flex font-medium bg-amber-100 text-amber-600 rounded-full text-center px-2.5 py-0.5">
+                                {/*{ source.crawling_status.label }pending
+                              </div>*/}
+                              {/*{source.crawling_status.is_in_progress && 
+                              <div className="inline-flex font-medium bg-blue-100 text-blue-600 rounded-full text-center px-2.5 py-0.5">
+                                { source.crawling_status.label }in
+                                progress
+                              </div>*/}
+                              {/*source.crawling_status.is_completed && */}
+                              <div className="inline-flex font-medium bg-emerald-100 text-emerald-600 rounded-full text-center px-2.5 py-0.5">
+                                {/*{ source.crawling_status.label }*/}
+                                completed
+                              </div>
+
+                              {/*source.crawling_status.is_failed && 
+                              <div className="inline-flex font-medium bg-amber-100 text-amber-600 rounded-full text-center px-2.5 py-0.5">
+                                {/*{ source.crawling_status.label }failed
+                              </div>*/}
+                            </td>
+
+                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                              <button
+                                className="text-rose-500 hover:text-rose-600 rounded-full cursor-not-allowed"
+                                disabled
+                              >
+                                <span className="sr-only">Delete</span>
+                                <svg
+                                  className="w-8 h-8 fill-current"
+                                  viewBox="0 0 32 32"
+                                >
+                                  <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z"></path>
+                                </svg>
+                              </button>
+                            </td>
+                            <td className="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+                              <div className="flex items-center">
+                                <button
+                                  className="text-slate-400 hover:text-slate-500 transform"
+                                  id="toggleTable"
+                                  // aria-expanded={open}
+                                  aria-controls="description-01"
+                                  onClick={handleToggle}
+                                  aria-expanded={open ? 'true' : 'false'}
+                                >
+                                  <span className="sr-only">Menu</span>
+                                  <svg
+                                    className="w-8 h-8 fill-current"
+                                    viewBox="0 0 32 32"
+                                  >
+                                    <path d="M16 20l-5.4-5.4 1.4-1.4 4 4 4-4 1.4 1.4z"></path>
+                                  </svg>
+                                </button>
                               </div>
                             </td>
                           </tr>
