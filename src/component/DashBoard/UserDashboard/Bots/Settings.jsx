@@ -1,16 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Settings.css';
-// import { useState } from 'react';
-// import { Image } from 'react-bootstrap';
-// import widgetGif from './../../../../assets/images/chat-widget-info.gif';
 
 const Settings = () => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // Function to toggle the isOpen state
-  // const toggleOpen = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
   return (
     <div className="bodyfont px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
       <div className="mb-8">
@@ -79,7 +70,7 @@ const Settings = () => {
                 <li className="mr-0.5 md:mr-0 md:mb-0.5">
                   <Link
                     className="flexs flex items-center px-2.5 py-2 rounded whitespace-nowrap"
-                    to="/chat"
+                    to="/dashboard/chatbot/settings-data"
                   >
                     {/* <FontAwesomeIcon
                       className="custom-icon"
@@ -181,7 +172,7 @@ const Settings = () => {
                         <div className="m-1.5">
                           <button
                             className="btn border-slate-200 hover:border-slate-300 text-indigo-500"
-                            onClick="fillPrompt('customer_support')"
+                            /*onClick=fillPrompt('customer_support')*/
                           >
                             👩🏾‍💻Customer Support
                           </button>
