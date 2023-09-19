@@ -1,0 +1,145 @@
+@import url('../../../../../index.css');
+
+.bots-container {
+  display: flex;
+  color: var(--color-dark-grey);
+}
+.profile h3 {
+  font-size: 35px;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+  color: var(--color-light-grey);
+  background-color: var(--color-primary);
+}
+a.bot-a {
+  color: var(--color-red);
+}
+a.bot-a:hover {
+  color: var(--color-primary);
+}
+.mb-6 {
+  font-weight: 600;
+}
+/*****************************
+STEP 1 - onboarding
+*****************************/
+.div-contain {
+  color: var(--color-dark-grey);
+  /* font-size: 1.2rem;
+  text-align: center;
+  margin-top: 3rem; */
+}
+.custom-icon {
+  color: var(--color-orange);
+}
+.py-2 h3 {
+  font-weight: bold;
+}
+
+/******************************
+STEP 2 - PDF upload
+*******************************/
+.image-uploader {
+  border: 2px dashed var(--color-dark-grey);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--color-white);
+}
+
+.image-uploader img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-bottom: 1rem;
+}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid var(--color-light-grey);
+  border-radius: 0.25rem;
+  width: 69px;
+  margin-left: 4px;
+  display: inline;
+  margin-right: 1rem;
+}
+.emoji {
+  font-size: 25px;
+}
+.step2-text {
+  font-weight: bold;
+  color: var(color-dark-grey);
+  margin-bottom: 1rem;
+}
+.imp-span {
+  color: var(--color-orange);
+}
+.bold {
+  font-weight: bold;
+}
+/* .mid {
+  text-align: center;
+} */
+
+/********************************
+Step 3 - Integration
+********************************/
+.heart {
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.not-ready-overlay {
+  position: relative;
+}
+
+.not-ready-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d9d9d9bd;
+  filter: blur(19px);
+  z-index: 1;
+}
+
+.not-ready-overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #606060;
+  font-size: 24px;
+
+  z-index: 2;
+  text-align: center;
+}
+/*********************************
+Step 4 - Done
+**********************************/
+.icon-done {
+  width: 100px;
+  height: 100px;
+  margin-top: 7rem;
+  color: var(--color-primary);
+}
+.space {
+  margin: 3rem 0;
+}

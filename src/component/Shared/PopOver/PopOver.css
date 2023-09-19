@@ -1,0 +1,25 @@
+@import url(../../../index.css);
+
+.popImg {
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer !important;
+  margin: 0.2rem 0 0 0.7rem;
+}
+.userName,
+.userEmail {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.userEmail {
+  margin: 0.1rem 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-dark-grey);
+}
+.centerr {
+  padding-left: 1rem;
+  margin: auto;
+  cursor: pointer;
+}
