@@ -8,7 +8,7 @@ const Step2 = () => {
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
 
-  const url = 'http://localhost:3000/file/knowledge/6509a0e6192e5ffc6c64382f';
+  const url = 'http://127.0.0.1:3000/file/knowledge';
 
   // Function to handle file input change
   const handleFileInputChange = (event) => {
@@ -19,7 +19,7 @@ const Step2 = () => {
       const imgElement = (
         <img
           key={file.name}
-          src={URL.createObjectURL(file)} // Use createObjectURL to get a URL for the file
+          src={URL.createObjectURL(file)} 
           alt={file.name}
           className="img-thumbnail mr-2 mb-2"
         />
@@ -43,30 +43,57 @@ const Step2 = () => {
 
     setIsLoading(true);
 
-    const formData = new FormData();
-
-    uploadedImages.forEach((file) => {
-      formData.append('pdffiles', file); // Append the file directly
-    });
-
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
+      const promises = uploadedImages.map(async (file) => {
+        const fileData = await getBase64Data(file.props.src);
+        const jsonData = {
+          data: fileData,
+          name: file.key,
+          id: '6509d749203262b55ee757dd', // Replace 'your-id' with the actual ID
+        };
+
+        const response = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(jsonData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          console.error('File upload failed');
+        }
       });
 
-      if (response.ok) {
-        // File upload was successful
-        // Navigate to a new location upon success
-        window.location.href = '/dashboard/create-bot/success';
-      } else {
-        console.error('File upload failed');
-      }
+      await Promise.all(promises);
+
+      // All file uploads were successful
+      // Navigate to a new location upon success
+      window.location.href = '/dashboard/create-bot/done';
     } catch (error) {
       console.error('An error occurred', error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const getBase64Data = (url) => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function () {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          resolve(reader.result.split(',')[1]);
+        };
+        reader.onerror = function (error) {
+          reject(error);
+        };
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    });
   };
 
   return (
