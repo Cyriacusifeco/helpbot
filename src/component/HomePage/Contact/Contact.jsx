@@ -1,6 +1,6 @@
 import './Contact.css';
 import { Col, Row } from 'react-bootstrap';
-import ContactImg from '../../../assets/hero.svg';
+import ContactImg from '../../../assets/contact.svg';
 import Fade from 'react-reveal/Fade';
 
 const Contact = () => {

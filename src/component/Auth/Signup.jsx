@@ -3,6 +3,7 @@ import './Signup.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
+import Pic from '../../assets/signup.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +39,7 @@ const Signup = () => {
               <img src={Logo} />
             </a>
           </div>
-          <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
+          <img src={Pic} alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
           <form method="POST" action="/account-info" onSubmit={handleSubmit}>

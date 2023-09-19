@@ -1,6 +1,7 @@
 import './Signup.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
+import Login from '../../assets/login.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +30,7 @@ const LogIn = () => {
               <img src={Logo} />
             </a>
           </div>
-          <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
+          <img src={Login} alt="Welcome" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
           <form className="sign-in-form">
