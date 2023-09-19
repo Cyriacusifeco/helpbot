@@ -11,12 +11,24 @@ const ChatWidget = () => {
     <>
       <div
         id="chat-icon"
-        className="icon-closed scale-in-center"
+        className={`icon-closed scale-in-center  ${isOpen ? 'hidden' : ''}`}
+        style={{
+          border: 'none',
+          padding: '10px',
+          backgroundColor: '#2d4059',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          position: 'fixed',
+          bottom: '2rem',
+          right: '6rem',
+          transition: 'transform 1s ease-in-out',
+          transform: 'translateX(100%)',
+        }}
         onClick={toggleChat}
       >
         <svg
-          stroke="#2d5455"
-          fill="#2d4059"
+          stroke="#000"
+          fill="#fff"
           viewBox="0 0 24 24"
           strokeWidth="0"
           height="3em"
@@ -39,8 +51,7 @@ const ChatWidget = () => {
               backgroundColor: '#fff',
               border: '1px solid #ccc',
               borderRadius: '5px',
-              boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-              zIndex: '1000',
+              boxShadow: '2px 5px rgba(0, 0, 0, 0.5)',
             }}
           ></iframe>
         </div>
