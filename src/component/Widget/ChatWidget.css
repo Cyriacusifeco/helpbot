@@ -3,7 +3,6 @@
 /* .chat-widget.open {
   transform: translateX(0);
 }
-
 .chat-content {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -12,13 +11,4 @@
 } */
 
 .chat-icon {
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  /* position: fixed; */
-  top: 30px;
-  right: 20px;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
 }
