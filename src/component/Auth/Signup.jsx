@@ -9,11 +9,12 @@ import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 const Signup = () => {
-  const {
+  const { handleSubmit,
     formState: { errors },
   } = useForm();
 
   const navigate = useNavigate();
+  const url = 'http://localhost:3000/api/users'
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -24,11 +25,28 @@ const Signup = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+ 
+  
+  const onSubmit = async () => {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate('/signup/account-info');
+      if (response.ok) {
+        navigate('/signup/account-info');
+      } else {
+        console.error('Failed to submit the form.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
+
   return (
     <div className="container mt-5">
       <div className="row">
@@ -41,7 +59,7 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form method="POST" action="/account-info" onSubmit={handleSubmit}>
+          <form method="POST" action="/account-info" onSubmit={handleSubmit(onSubmit)}>
             <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
@@ -90,9 +108,7 @@ const Signup = () => {
                 type="password"
               />
             </div>
-            <Link to="/signup/account-info">
-              <input className="btn-3" type="submit" value="Continue" />
-            </Link>
+              <button className="btn-3" type="submit">Continue</button>
             <p className="social-text">
               Already have an account? <Link to="/LogIn">Log In</Link>
             </p>
