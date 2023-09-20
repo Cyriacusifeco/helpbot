@@ -57,7 +57,7 @@ const AcctInfo = () => {
             <form
               method="POST"
               action="/setup"
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit}
               className="sign-up-form"
             >
               <h2 className="title">

@@ -25,9 +25,44 @@ const Signup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleRegistration = async () => {
+	  console.log('handleRegistration called');
+    const userData = {
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (response.ok) {
+        // Registration successful, you can handle the response here
+        const responseData = await response.json();
+        // Capture the user_id or perform any necessary actions
+        // Navigate or show a success message as needed
+        navigate('/signup/account-info');
+      } else {
+        // Handle registration failure (e.g., show an error message)
+        console.error('Registration failed');
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error('An error occurred:', error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/signup/account-info');
+	  console.log('handleSubmit called');
+    handleRegistration();
+    // navigate('/signup/account-info');
   };
   return (
     <div className="container mt-5">
@@ -41,7 +76,7 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-          <form method="POST" action="/account-info" onSubmit={handleSubmit}>
+          <form method="POST" onSubmit={handleSubmit}>
             <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
