@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Upload Test</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>File Upload Test</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" id="fileInput">
+    <button type="button" id="uploadButton">Upload File</button>
+  </form>
+  <div id="message"></div>
+
+  <script>
+    $(document).ready(() => {
+      $('#uploadButton').on('click', () => {
+        const formData = new FormData();
+        const fileInput = $('#fileInput')[0];
+        const idn = '64ecd23ab30d2f76a75c04c9'
+
+        formData.append('uploadedFile', fileInput.files[0]);
+
+        $.ajax({
+          type: 'POST',
+          url: 'http://127.0.0.1:3000/file/knowledge/' + idn,
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: (response) => {
+            $('#message').text('File uploaded and saved successfully.');
+            $('#message').css('color', 'green');
+          },
+          error: (error) => {
+            console.error('Error:', error);
+            $('#message').text('An error occurred while uploading the file.');
+            $('#message').css('color', 'red');
+          },
+        });
+      });
+    });
+  </script>
+</body>
+</html>

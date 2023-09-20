@@ -176,15 +176,15 @@ const Theme = ({ botToken }) => {
                             disabled
                           >
                             {/* Embeded code */}
-                            {`<script src="https://helpbot.com/chat.js"></script>
-                          <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                              var chatConfig = {
-                                token: "${botToken}",
-                              };
-                              initializeChatWidget(chatConfig);
-                            });
-                          </script>`}
+                            {`<script src="https://use.fontawesome.com/0620950d14.js"></script>
+                              <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                  var chatConfig = {
+                                  token: "${botToken}",
+                                  };
+                                  initializeChatWidget(chatConfig);
+                                });
+                              </script>`}
                           </textarea>
                         </div>
                       </div>
