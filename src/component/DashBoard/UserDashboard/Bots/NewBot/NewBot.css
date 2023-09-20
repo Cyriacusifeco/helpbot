@@ -54,7 +54,9 @@ STEP 2 - PDF upload
   max-height: 200px;
   margin-bottom: 1rem;
 }
-
+.uploaded-images {
+  margin-top: 1rem;
+}
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

@@ -19,7 +19,7 @@ const Step2 = () => {
       const imgElement = (
         <img
           key={file.name}
-          src={URL.createObjectURL(file)} 
+          src={URL.createObjectURL(file)}
           alt={file.name}
           className="img-thumbnail mr-2 mb-2"
         />
@@ -133,23 +133,36 @@ const Step2 = () => {
               style={{ display: 'none' }}
             />
           </div>
-
-          {isLoading ? (
-            <div className="text-center">Loading...</div>
-          ) : (
-            <div className="flex items-center justify-between">
-              <Link
-                className="bot-a text-s underline hover:no-underline"
-                to="/dashboard/create-bot/onboarding"
-              >
-                &lt;- Back
-              </Link>
+          <div className="uploaded-images" id="uploadedImages"></div>
+        </div>
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <div className="font-medium bold text-slate-800 text-sm mb-1">
+              Make sure that your files are scannable (text not images) 🫶
+            </div>
+            <div className="text-xs">
+              You can upload multiple files at once and we will process them in
+              the background.
+            </div>
+          </div>
+        </div>
+        {isLoading ? (
+          <div className="text-center">Loading...</div>
+        ) : (
+          <div className="flex items-center justify-between">
+            <Link
+              className="bot-a text-s underline hover:no-underline"
+              to="/dashboard/create-bot/onboarding"
+            >
+              &lt;- Back
+            </Link>
+            <Link to="/dashboard/create-bot/done">
               <button className="btn-2 ml-auto" type="submit">
                 Next -&gt;
               </button>
-            </div>
-          )}
-        </div>
+            </Link>
+          </div>
+        )}
       </form>
     </div>
   );
