@@ -37,46 +37,6 @@ const Signup = () => {
         body: JSON.stringify(formData),
       });
 
-<<<<<<< HEAD
-  const handleRegistration = async () => {
-	  console.log('handleRegistration called');
-    const userData = {
-      username: formData.username,
-      email: formData.email,
-      password: formData.password,
-    };
-
-    try {
-      const response = await fetch('http://localhost:3000/api/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (response.ok) {
-        // Registration successful, you can handle the response here
-        const responseData = await response.json();
-        // Capture the user_id or perform any necessary actions
-        // Navigate or show a success message as needed
-        navigate('/signup/account-info');
-      } else {
-        // Handle registration failure (e.g., show an error message)
-        console.error('Registration failed');
-      }
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error('An error occurred:', error);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-	  console.log('handleSubmit called');
-    handleRegistration();
-    // navigate('/signup/account-info');
-=======
       if (response.ok) {
         navigate('/signup/account-info');
       } else {
@@ -85,7 +45,6 @@ const Signup = () => {
     } catch (error) {
       console.error('An error occurred:', error);
     }
->>>>>>> 87805e46c3630cc59f431b01c9663f7b127eca90
   };
 
   return (
@@ -100,11 +59,7 @@ const Signup = () => {
           <img src="src/assets/2.jpeg" alt="" className="img-fluid image" />
         </div>
         <div className="col-md-6 log-in p-3">
-<<<<<<< HEAD
-          <form method="POST" onSubmit={handleSubmit}>
-=======
           <form method="POST" action="/account-info" onSubmit={handleSubmit(onSubmit)}>
->>>>>>> 87805e46c3630cc59f431b01c9663f7b127eca90
             <h2 className="title">Create a free account</h2>
             <p className="subtitle">It is quick and easy.</p>
             <div className="input-field">
