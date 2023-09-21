@@ -1,7 +1,6 @@
-import '../App/App.css';
-import './Signup.css';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import  { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useNavigate, Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,26 +8,43 @@ import { faBuilding, faUser, faLink } from '@fortawesome/free-solid-svg-icons';
 
 const AcctInfo = () => {
   const {
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  // Define setIsRegSuccessful and initialize it as false
-  const [isRegSuccessful, setIsRegSuccessful] = useState(false);
+  const navigate = useNavigate();
+  const url = 'http://localhost:3000/api/business/register';
 
-  //Sending POST requet to the /api/users endpoint
-  const onSubmit = async (data) => {
+  const [formData, setFormData] = useState({
+    business_name: '',
+    business_email: '',
+    industry: '', // Add the industry field
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Define onSubmit function
+  const onSubmit = async () => {
+    const user_id = Cookies.get('userId');
+    formData.user_id = user_id;
+
     try {
-      const response = await fetch('/api/users', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
+
       if (response.ok) {
-        setIsRegSuccessful(true);
+        const responseData = await response.json();
+        const businessId = responseData._id;
+        Cookies.set('businessId', businessId, { expires: 7 });
+        navigate('/dashboard/create-bot/onboarding');
       } else {
         console.log('Registration failed');
       }
@@ -41,7 +57,7 @@ const AcctInfo = () => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-sm-6 p-3 d-none  d-sm-block">
+          <div className="col-sm-6 p-3 d-none d-sm-block">
             <div className="logo-container">
               <a href="/">
                 <img src={Logo} alt="logo" />
@@ -56,7 +72,7 @@ const AcctInfo = () => {
           <div className="col-md-6 log-in p-3">
             <form
               method="POST"
-              action="/setup"
+              action="/dashboard/create-bot/onboarding"
               onSubmit={handleSubmit(onSubmit)}
               className="sign-up-form"
             >
@@ -70,10 +86,10 @@ const AcctInfo = () => {
                 <input
                   type="text"
                   id="business-name"
-                  name="businessName"
+                  name="business_name"
+                  onChange={handleChange}
                   required
                   placeholder="Business Name"
-                  {...register('businessName')}
                 />
               </div>
               <div className="input-field">
@@ -83,14 +99,14 @@ const AcctInfo = () => {
                 <input
                   type="url"
                   id="website"
-                  name="website"
+                  name="business_email"
                   required
+                  onChange={handleChange}
                   placeholder="Website"
-                  {...register('website')}
                 />
                 {errors.website && (
                   <span className="text-danger">
-                    This field must contain a url
+                    This field must contain a URL
                   </span>
                 )}
               </div>
@@ -98,44 +114,28 @@ const AcctInfo = () => {
                 <span className="fIcon">
                   <FontAwesomeIcon icon={faBuilding} />
                 </span>
-                <select {...register('industry')} name="industry">
+                <select  name="industry">
                   <option disabled selected value="">
                     Select an option
                   </option>
                   <option value="Real Estate">Real Estate</option>
-                  <option value="Beauty and Skincare">
-                    Beauty and Skincare
-                  </option>
-                  <option value="Clothing and Apparel">
-                    Clothing and Apparel
-                  </option>
+                  <option value="Beauty and Skincare">Beauty and Skincare</option>
+                  <option value="Clothing and Apparel">Clothing and Apparel</option>
                   <option value="Finance">Finance</option>
                   <option value="Automobile">Automobile</option>
-                  <option value="Gadgets and Electronics">
-                    Gadgets and Electronics
-                  </option>
+                  <option value="Gadgets and Electronics">Gadgets and Electronics</option>
                 </select>
               </div>
-              <Link to="/dashboard/create-bot/onboarding">
-                <input
-                  className="btn-3 btn text-white"
-                  type="submit"
-                  value="Sign Up"
-                />
-              </Link>
+              <button className="btn-3 btn text-white" type="submit">Sign Up</button>
               <p className="social-text">
                 Already have an account? <Link to="/LogIn">Log In</Link>
               </p>
             </form>
-            {isRegSuccessful && (
-              <div>
-                <h5>Registration Successful</h5>
-              </div>
-            )}
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default AcctInfo;
