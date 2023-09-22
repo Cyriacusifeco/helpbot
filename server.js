@@ -20,7 +20,7 @@ const getPdfContent = require('./config/pdfhandler.js').getPdfContent;
 const expressAsyncHandler = require('express-async-handler');
 const morgan = require('morgan');
 const axios = require('axios');
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 console.log(`${port}`.cyan.underline)
 
 //connectDB()

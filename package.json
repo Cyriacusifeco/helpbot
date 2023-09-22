@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "handling of user and other api's",
   "main": "server.js",
+   "exports": {
+    ".": {
+      "import": "esm-entry.mjs",
+      "require": "commonjs-entry.js"
+   	 }
+   },
   "engines": {
     "node": ">=16.0.0 <19.0.0"
   },
   "scripts": {
     "dev": "nodemon server.js",
+    "frontend": "vite",
     "start": "node server.js",
     "build": "tsc && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
