@@ -49,8 +49,9 @@ DELETE /business/:id -> Delete a Particular business
 
 GET /business/:business_id/queries -> Get all queries under a business
 
-###### knowledge file(bot)
-POST /file/knowledge/:id -> Send the file with a particular business id. The content of the pdf file will be in knowledge_content
+### Knowledge file(bot) json {id ,name, data} -> all must be included
+POST /file/knowledge/ -> Send the file with a particular business id, ***data*** -> The content of the file encode in base 64, name-> the name of the file.
+The content of the pdf file will be in knowledge_content
 
 ###### CAC file
 POST /file/cac/:id -> send the file with a particular business id
@@ -90,3 +91,8 @@ You can only use the  key-value pair of  **query_text, feedback_text, feedback_r
 GET /api/hash_passwd -> Get the hash value of a particular password. The password will be in a json with a key  of password
 
 GET /api/check_passwd -> check if a password matches a hashed value. The json will contain **password, hashpassword**. Then it will return a json with **matches** as a key in the json value. which either assume the value of True or False as the case may be.
+
+
+
+
+

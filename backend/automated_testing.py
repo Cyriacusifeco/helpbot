@@ -2,7 +2,7 @@
 """This is automated testing for this api"""
 import requests
 
-url = 'https://help-api.onrender.com/api/'
+url = 'http://localhost:3000/api/'
 
 #create user
 user_information = {

@@ -1,4 +1,5 @@
 #!/usr/bin/node
+/* eslint-disable */
 const express = require('express');
 const expressAsyncHandler = require('express-async-handler');
 const fileUpload = require('express-fileupload');
@@ -10,20 +11,30 @@ const pdf = require('pdf-parse');
 
 const router = express.Router();
 
+function base64DecodeFile(base64String) {
+  return Buffer.from(base64String, 'base64');
+}
 
-router.post('/knowledge/:id', expressAsyncHandler(async (req, res) => {
-  if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).send('No files were uploaded.');
+
+
+router.post('/knowledge', expressAsyncHandler(async (req, res) => {
+  if (!req.body.data) { 
+    return res.status(400).send('No files were uploaded.');
+  }
+  if (!req.body.name) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  if(!req.body.id){
+    return res.status(400).send('No Id is updated.');
   }
 
-  const business = await Business.findById(req.params.id);
+  const business = await Business.findById(req.body.id);
   if (!business) {
       res.status(404);
       throw new Error('business not found');
   }
 
-  const filename = 'bot_' + business.business_name + req.params.id + '.pdf';
-  const uploadedFile = req.files.uploadedFile;
+  const filename = 'bot_' + business.business_name + req.body.id + '.pdf';
   const uploadedirect = path.join(__dirname, 'uploads');
   const uploadedFilePath = path.join(uploadedirect, filename); // Fixed path
 
@@ -32,8 +43,10 @@ router.post('/knowledge/:id', expressAsyncHandler(async (req, res) => {
   }
 
   console.log('Uploading file to:', uploadedFilePath);
+  const buffer = base64DecodeFile(req.body.data);
+  fs.writeFileSync(uploadedFilePath, buffer);
 
-  await uploadedFile.mv(uploadedFilePath); // Use await here
+  //await uploadedFile.mv(uploadedFilePath); // Use await here
 
   // Read and parse the PDF content
   try {
@@ -48,13 +61,14 @@ router.post('/knowledge/:id', expressAsyncHandler(async (req, res) => {
           knowledge_content: pdfcontent
       };
 
-      const UpdatedBusiness = await Business.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true });
+      const UpdatedBusiness = await Business.findByIdAndUpdate(req.body.id, { $set: updatedItems }, { new: true });
       res.status(200).json(UpdatedBusiness);
   } catch (err) {
       console.error('Error reading or processing PDF:', err);
       res.status(500).json({ error: 'Internal Server Error' });
   }
 }));
+
 router.post('/cac/:id', expressAsyncHandler(async (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');

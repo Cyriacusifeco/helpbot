@@ -1,0 +1,199 @@
+@import url(../../../index.css);
+.footer {
+  background: var(--color-primary);
+  /* background-image: url('../../../Assets/footerbg.png'); */
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 !important;
+}
+.footerBox .footerLogo {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0px 60px 0 var(--color-light-grey);
+  height: 70px;
+  padding: 0.5rem;
+}
+.linkIcon {
+  color: var(--color-primary);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  background: white;
+  padding: 5px;
+  margin: 0 0.5rem;
+  border-radius: 0.3rem;
+}
+.footerLink,
+.fAboutUs {
+  padding: 1.5rem 2rem;
+}
+.fAboutUs h5 {
+  text-align: left;
+}
+.footerLink h5,
+.fAboutUs h5 {
+  color: var(--color-light-grey);
+  padding-top: 0.5rem;
+  font-weight: 400;
+  display: inline-block;
+  position: relative;
+}
+.footerLink h5 {
+  padding-bottom: 0.5rem;
+}
+.footerLink h5::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 60px;
+  border-radius: 70px;
+  height: 4px;
+  background: var(--color-red);
+}
+.footerLink > .aboutUsDes {
+  color: var(--color-light-grey);
+  font-weight: 400;
+}
+.footerLink li {
+  list-style: none;
+  color: var(--color-light-grey);
+  font-size: var(--font-size-x-small);
+  transition: 0.4s;
+  margin: 1.1rem 0;
+  font-weight: 400;
+}
+.footerLink li:hover {
+  margin-left: 0.7rem;
+  color: var(--color-red);
+}
+
+.footerLink a {
+  color: var(--color-light-grey);
+  text-decoration: none;
+}
+.footerLink a:hover {
+  text-decoration: none;
+}
+.footArrowIcon {
+  font-size: 0.9rem;
+}
+
+.fAboutUs p {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-x-small);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+.fAboutUs ul {
+  margin: 0;
+  padding: 0;
+}
+.fAboutUs li {
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+.fAboutUs li a {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2.5rem;
+  background: #fff;
+  margin-right: 5px;
+  color: var(--color-primary);
+  transition: 0.4s;
+}
+.fAboutUs li a:hover {
+  background: var(--color-red);
+  color: #fff;
+}
+
+.copyRight {
+  background-color: var(--color-orange);
+  color: var(--color-light-grey);
+  font-weight: 400;
+  font-size: var(--font-size-x-small);
+  text-align: center;
+  margin-bottom: 0;
+  padding: 1rem 0;
+}
+.copyRight > .fHighlight {
+  color: #fff;
+  font-weight: 400;
+  font-size: var(--font-size-small);
+}
+/* FooterInfo */
+
+.footerInfo {
+  width: 100%;
+  border-bottom: 1px solid var(--color-light-grey);
+  padding: 3rem 0 2rem;
+}
+
+.fContactInfo p {
+  color: var(--color-light-grey);
+  font-size: var(--font-size-small);
+  margin-bottom: 0.2rem;
+  margin-left: 0.7rem;
+}
+.fContactIcon {
+  font-size: 2.5rem;
+  color: var(--color-light-grey);
+}
+
+.fContactInfo1 p {
+  color: #fff !important;
+  font-weight: 500;
+  font-size: 1.5rem !important;
+}
+.fContactInfo1 .fContactIcon {
+  color: #fff;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+/* Animation border
+
+.animate-border {
+  position: relative;
+  display: block;
+  width: 115px;
+  height: 3px;
+  background: var(--color-orange);
+}
+
+.animate-border:after {
+  position: absolute;
+  content: '';
+  width: 35px;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  border-left: 20px solid #fff;
+  -webkit-animation: animborder 3s linear infinite;
+  animation: animationborder 3s linear infinite;
+}
+
+@keyframes animationborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(81px);
+    transform: translateX(81px);
+  }
+}
+
+@keyframes animationborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(81px);
+    transform: translateX(81px);
+  }
+} */
