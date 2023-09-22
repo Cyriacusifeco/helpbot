@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import Cookies from 'js-cookie'
 
 const Signup = () => {
   const { handleSubmit,
@@ -38,6 +39,10 @@ const Signup = () => {
       });
 
       if (response.ok) {
+        const responseData = await response.json();
+        const userId = responseData._id;
+        Cookies.set('userId', userId, { expires: 7 });
+        console.log(Cookies.get('userId'));
         navigate('/signup/account-info');
       } else {
         console.error('Failed to submit the form.');

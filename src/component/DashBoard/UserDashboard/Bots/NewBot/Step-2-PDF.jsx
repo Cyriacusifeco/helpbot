@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import './NewBot.css';
+import Cookies from 'js-cookie'
 
 const Step2 = () => {
   // PDF upload logic
@@ -49,7 +50,7 @@ const Step2 = () => {
         const jsonData = {
           data: fileData,
           name: file.key,
-          id: '6509d749203262b55ee757dd', // Replace 'your-id' with the actual ID
+          id: Cookies.get('businessId'),
         };
 
         const response = await fetch(url, {
