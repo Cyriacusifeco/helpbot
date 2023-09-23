@@ -1,5 +1,5 @@
 import './DashBoard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import axios from 'axios';
 import { useState } from 'react';
 import UserDashboard from './UserDashboard/UserDashboard';
@@ -7,9 +7,19 @@ import SideBar from './SideBar/Sidebar';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopOver from '../Shared/PopOver/PopOver';
+import Cookies from 'js-cookie'
 // import { useAuthContext } from '../../context';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  function isLogin() {
+    if (Cookies.get('logIn')){
+      console.log('Logged In')
+    } else {
+      navigate('/LogIn')
+    }
+  }
+  isLogin();
   const [sideToggle, setSideToggle] = useState(false);
   const [title, setTitle] = useState('HelpBot');
   // const { state: user, admin } = useAuthContext();

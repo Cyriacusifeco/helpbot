@@ -1,11 +1,11 @@
 #!/usr/bin/node
+/* eslint-disable no-undef */
 // The users api controller
 const expressAsyncHandler = require('express-async-handler');
 const User = require('../.../../../models/usersModel.js');
 const Business = require('../../models/businessModel.js');
 const bcrypt = require("bcrypt")
 const { v4: uuidv4 } = require('uuid');
-const colors = require('colors')
 
 const hashPassword = async (password) => {
     const salt = await bcrypt.genSalt(saltRounds=10)
@@ -68,7 +68,7 @@ const updateUser = expressAsyncHandler(async (req, res) => {
         const hashpassword = await hashPassword(pass);
         updatedItems.password = hashpassword;
     }
-    const UpdatedUser = await User.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true})
+    await User.findByIdAndUpdate(req.params.id, { $set: updatedItems }, { new: true})
     const newUser = await User.findById(req.params.id);
     res.status(200).json(newUser);
 });
@@ -100,7 +100,7 @@ const userSearch = expressAsyncHandler(async (req, res) => {
     try {
       if (!req.body) throw new Error('Please provide search criteria.');
   
-      const search = {username: req.body.username, email: req.body.email}
+      const search = {email: req.body.email}
   
       const users = await User.find(search);
   
@@ -139,7 +139,7 @@ const genApiKey = expressAsyncHandler(async (req, res) => {
         throw new Error('user not found');
     }
     const api_key = 'hpb_' + uuidv4();
-    const UpdatedUser = await User.findByIdAndUpdate(req.body.user_id, { $set: {api_key: api_key} }, { new: true});
+    await User.findByIdAndUpdate(req.body.user_id, { $set: {api_key: api_key} }, { new: true});
     res.status(200).json({api_key: api_key});
 });
 
