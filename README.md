@@ -1,11 +1,7 @@
-# React + Vite
+# MERN STACK + PYTHON
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get HelpBot working locally.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -15,8 +11,8 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- A browser (e.g. Firefox)
-- An IDE (e.g. [Vususal Studio Code](https://code.visualstudio.com/download))
+- A browser (e.g. Chrome, Firefox)
+- An IDE (e.g. VIM)
 - [npm](https://nodejs.org/en/)
 - Terminal
 
@@ -46,8 +42,14 @@ To clone this repository to your desired folder, follow the steps below:
 
 To run the project, execute the following command:
 
-**run `npm install` on your terminal** to install the necessary dependencies
-**run `npm run dev` on your terminal** to run the project locally
+**run `npm install --force` on your terminal** to install the necessary dependencies
+**run `npm run frontend` on your terminal** to run the project frontend locally
+**vi package.json
+**Edit the type attribute and replace the value "module" with "commonjs" 
+**run `npm run dev` on your terminal** to run the project backend locally.
+**cd client and run `npm run dev` on your terminal** to run the project chatwidget locally.
+**run `mongod` on your terminal** to setup mongodb for the project's database locally.
+**On another terminal, run 'python3 app.py'** to start the chatservices.
 
 ### Deployment
 
@@ -57,22 +59,29 @@ To be updated later.
 
 ## 👥 Authors <a name="authors"></a>
 
+ **Cyriacusifeco**
+
+- GitHub: [@Cyriacusifeco](https://github.com/Cyriacusifeco)
+- Twitter: [@DrCyri](https://twitter.com/cyriacusifeco)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/cyriacusifeco)
+
 👤 **Charlian**
 
 - GitHub: [@CharlyAnne](https://github.com/CharlyAnne)
 - Twitter: [@Imoisiliii](https://twitter.com/imoisiliii)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/charlian-imoisili)
 
+
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Chat Bots**
-- [ ] **Chat Widgets**
-- [ ] **Widget Integration**
+- [ ] **Centralized Chat review from the dashboard**
+- [ ] **Chat Widget customization**
+- [ ] **One-click Installation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-The Helpbot team
+The Helpbot Team
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
