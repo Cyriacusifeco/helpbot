@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "handling of user and other api's",
   "main": "server.js",
-  "type": "module",
+  "type": "commonjs",
    "exports": {
     ".": {
       "import": "esm-entry.mjs",
@@ -14,7 +14,7 @@
     "node": ">=16.0.0 <19.0.0"
   },
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "node server.js",
     "frontend": "vite",
     "start": "node server.js",
     "build": "tsc && vite build",
