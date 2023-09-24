@@ -8,9 +8,16 @@ import Theme from './Bots/Settings-theme';
 import SettingsData from './Bots/Settings-data';
 import ChatWidget from '../../Widget/ChatWidget';
 import Inbox from './Inbox/Inbox';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 const UserDashboard = () => {
+  const navigate = useNavigate();
+  if (Cookies.get('logIn')){
+    console.log('Logged In')
+  } else {
+    navigate('/LogIn')
+  }
   return (
     <Routes>
       <Route path="chatbot" element={<Bot />} />

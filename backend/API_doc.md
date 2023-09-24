@@ -74,7 +74,7 @@ DELETE /api/query/:id -> delete a particular query with a particular id
 ### Searches
 NOTE: the key-value that will be take account for are the one mention in each cases below
 
-GET /api/users_search -> sent a json of key-value and what to search
+POST /api/users_search -> sent a json of key-value and what to search
 -> The result of users found will be sent back.
 You can only use the  key-value pair of  **username, email** in searching
 
@@ -90,7 +90,7 @@ You can only use the  key-value pair of  **query_text, feedback_text, feedback_r
 
 GET /api/hash_passwd -> Get the hash value of a particular password. The password will be in a json with a key  of password
 
-GET /api/check_passwd -> check if a password matches a hashed value. The json will contain **password, hashpassword**. Then it will return a json with **matches** as a key in the json value. which either assume the value of True or False as the case may be.
+POST /api/check_passwd -> check if a password matches a hashed value. The json will contain **password, hashpassword**. Then it will return a json with **matches** as a key in the json value. which either assume the value of True or False as the case may be.
 
 
 

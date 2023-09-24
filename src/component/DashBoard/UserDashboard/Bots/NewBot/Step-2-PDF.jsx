@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import './NewBot.css';
 import Cookies from 'js-cookie'
 
 const Step2 = () => {
+  const navigate = useNavigate();
+  if (Cookies.get('logIn')){
+    console.log('Logged In')
+  } else {
+    navigate('/LogIn')
+  }
   // PDF upload logic
   const [uploadedImages, setUploadedImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
