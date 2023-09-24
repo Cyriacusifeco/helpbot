@@ -12,9 +12,11 @@
 
 #chat-icon svg:hover {
   /* background-color: aquamarine; */
-  fill: #2d4059;
-  box-shadow: 1px 1px 5px #fff;
+  box-shadow: 1px 1px 10px #ea5455;
 }
 #chat-icon:hover {
-  box-shadow: 1px 2px 15px #ea5455;
+  box-shadow: 1px 2px 15px #2d4059;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange);
 }
