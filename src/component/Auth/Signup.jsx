@@ -40,6 +40,7 @@ const Signup = () => {
 
       if (response.ok) {
         const responseData = await response.json();
+	      console.log(responseData);
         const userId = responseData._id;
         Cookies.set('userId', userId, { expires: 7 });
         console.log(Cookies.get('userId'));
