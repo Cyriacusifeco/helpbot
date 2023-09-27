@@ -71,6 +71,11 @@ To be updated later.
 - Twitter: [@Imoisiliii](https://twitter.com/imoisiliii)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/charlian-imoisili)
 
+ **Ogungbile**
+
+- GitHub: [@Ogungbile](https://github.com/ogungbile)
+- Twitter: [@tobi_ogungbile(https://twitter.com/tobi_ogungbile)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/oluwagbemiga-ogungbile)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
