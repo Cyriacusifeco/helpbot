@@ -59,6 +59,12 @@ To be updated later.
 
 ## 👥 Authors <a name="authors"></a>
 
+**Musoye**
+
+- GitHub: [@Musoye](https://github.com/musoye)
+- Twitter: [@Musoye](https://twitter.com/musoye1)
+- LinkedIn: [Musoye](https://www.linkedin.com/in/musoye)
+
  **Cyriacusifeco**
 
 - GitHub: [@Cyriacusifeco](https://github.com/Cyriacusifeco)
