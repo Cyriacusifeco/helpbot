@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "handling of user and other api's",
   "main": "server.js",
-  "type": "commonjs",
+  "type": "module",
    "exports": {
     ".": {
       "import": "esm-entry.mjs",
